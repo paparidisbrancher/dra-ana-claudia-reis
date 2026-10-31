@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dra. Ana Cláudia Reis | Harmonização facial em Carmo da Cachoeira e Varginha</title>
+<meta name="description" content="Dra. Ana Cláudia Reis, cirurgiã-dentista. Harmonização facial, toxina botulínica e preenchimento labial com avaliação individual em Carmo da Cachoeira, Varginha e região.">
+<!-- Em aprovação: remover noindex quando a cliente confirmar os dados e o domínio. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#271E1B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Dra. Ana Cláudia Reis">
+<meta property="og:description" content="Naturalidade e elegância em cada detalhe. Agende sua avaliação.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Bodoni Moda";src:url(fonts/bodoni-moda.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:"Jost";src:url(fonts/jost.woff2) format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  /* Paleta provisória: trocar pelo manual de marca quando a cliente enviar. */
+  --marfim:#F6F3EE; --areia:#E8DFD5; --taupe:#B9A99C; --marrom:#3B302C; --grafite:#282523;
+  --noite:#271E1B;          /* fundo do retrato de estúdio, para o hero continuar a foto */
+  --texto-claro:#D9CEC4;    /* texto secundário sobre fundo escuro (contraste > 9:1) */
+  --texto-suave:#6A5D55;    /* texto secundário sobre marfim (contraste > 5.5:1) */
+  --serif:"Bodoni Moda",Georgia,serif;
+  --sans:"Jost",system-ui,sans-serif;
+  --gutter:clamp(16px,5vw,64px);
+  --largura:1200px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--marfim);color:var(--grafite);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:2px}
+.envolto{width:min(100% - 2*var(--gutter),var(--largura));margin-inline:auto}
+.pular{position:absolute;left:-999px;top:8px;z-index:20;background:var(--marfim);color:var(--grafite);padding:10px 16px}
+.pular:focus{left:8px}
+
+/* Dado ainda não confirmado pela cliente. Remover a classe ao confirmar. */
+.pend{text-decoration:underline dashed 1px;text-underline-offset:4px}
+.pend::after{content:"a confirmar";display:inline-block;margin-left:.5em;padding:0 .45em;font:500 .68rem/1.6 var(--sans);letter-spacing:.02em;background:#EBD9A6;color:var(--marrom);border-radius:3px;vertical-align:.15em;text-decoration:none}
+
+.botao{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;font:500 1rem/1 var(--sans);text-decoration:none;transition:background-color .2s,color .2s}
+.botao--claro{background:var(--marfim);color:var(--grafite)}
+.botao--claro:hover{background:var(--areia)}
+.botao--escuro{background:var(--marrom);color:var(--marfim)}
+.botao--escuro:hover{background:var(--grafite)}
+.link{font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.link:hover{text-decoration-thickness:2px}
+
+/* Cabeçalho */
+.topo{background:var(--noite);color:var(--marfim)}
+.topo .envolto{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:84px}
+.marca{text-decoration:none;display:flex;flex-direction:column;line-height:1.15}
+.marca strong{font:400 1.35rem var(--serif)}
+.marca span{font-size:.8rem;color:var(--texto-claro);letter-spacing:.04em}
+.menu-botao{display:none;background:none;border:1px solid rgb(246 243 238 / .4);color:inherit;border-radius:999px;min-height:44px;padding:0 18px;font:500 .95rem var(--sans);cursor:pointer}
+#menu{display:flex;align-items:center;gap:28px;position:static;inset:auto;margin:0;padding:0;border:0;background:none;color:inherit;overflow:visible}
+#menu a{text-decoration:none;font-size:.95rem}
+#menu a:not(.botao):hover{text-decoration:underline;text-underline-offset:6px}
+#menu .botao{min-height:44px;padding:0 22px;font-size:.95rem}
+
+@media (max-width:899px){
+  .menu-botao{display:inline-flex;align-items:center}
+  #menu{display:none}
+  #menu:popover-open{display:flex;flex-direction:column;align-items:stretch;gap:0;position:fixed;inset:0 0 auto auto;width:min(86vw,360px);height:100dvh;padding:88px 28px 28px;background:var(--noite);color:var(--marfim);box-shadow:-20px 0 60px rgb(0 0 0 / .35)}
+  #menu:popover-open a:not(.botao){padding:14px 0;border-bottom:1px solid rgb(246 243 238 / .15);font-size:1.15rem}
+  #menu:popover-open .botao{margin-top:24px}
+  #menu::backdrop{background:rgb(20 15 13 / .5)}
+  .menu-fechar{position:absolute;top:20px;right:20px}
+}
+@media (min-width:900px){.menu-fechar{display:none}}
+
+/* Hero */
+.hero{background:var(--noite);color:var(--marfim);overflow:hidden}
+.hero .envolto{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:clamp(24px,4vw,64px)}
+.hero__texto{align-self:center;padding-block:clamp(48px,8vw,120px)}
+.hero h1{font-size:clamp(2.75rem,6.4vw,5.6rem);letter-spacing:-.015em;max-width:11ch}
+.hero__sub{margin-top:28px;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--texto-claro);max-width:44ch}
+.hero__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:36px}
+.hero__local{margin:48px 0 0;font-size:.95rem;color:var(--texto-claro)}
+.hero__foto{margin:0;align-self:end}
+.hero__foto img{width:100%;max-height:min(88vh,860px);object-fit:cover;object-position:50% 12%;
+  --fade:linear-gradient(to right,transparent 0,#000 14%,#000 90%,transparent),linear-gradient(to bottom,transparent 0,#000 12%);
+  -webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1,.hero__sub,.hero__acoes{animation:surgir .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero__sub{animation-delay:.12s}.hero__acoes{animation-delay:.24s}
+  .hero__foto img{animation:revelar 1.4s ease-out both}
+}
+@keyframes surgir{from{opacity:0;transform:translateY(14px)}}
+@keyframes revelar{from{opacity:0}}
+@media (max-width:899px){
+  .hero .envolto{grid-template-columns:1fr;gap:0}
+  .hero__texto{padding-bottom:40px}
+  .hero__foto{margin-inline:calc(-1*var(--gutter))}
+  .hero__foto img{aspect-ratio:4/5;max-height:none;object-position:50% 30%;-webkit-mask-image:none;mask-image:none}
+}
+
+/* Seções */
+.secao{padding-block:clamp(72px,11vw,148px)}
+.secao h2{font-size:clamp(2.1rem,4.4vw,3.6rem);letter-spacing:-.01em}
+.intro{margin-top:20px;color:var(--texto-suave);font-size:1.1rem}
+
+/* Sobre */
+.sobre .envolto{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,112px);align-items:center}
+.sobre__foto{margin:0;position:relative}
+.sobre__foto img{width:100%;aspect-ratio:1/1.05;object-fit:cover;object-position:50% 20%}
+.sobre__foto::before{content:"";position:absolute;inset:-28px 28px 28px -28px;background:var(--areia);z-index:-1}
+.sobre h2{margin-bottom:28px}
+.sobre__registro{margin-top:32px;padding-top:20px;border-top:1px solid var(--taupe);font-size:.95rem;color:var(--texto-suave)}
+.sobre__registro strong{display:block;font-weight:500;color:var(--grafite);font-size:1.05rem}
+@media (max-width:799px){.sobre .envolto{grid-template-columns:1fr}.sobre__foto{max-width:460px;margin-left:28px}}
+
+/* Frase */
+.frase{margin:0;background:var(--areia);padding-block:clamp(72px,10vw,136px)}
+.frase blockquote{margin:0}
+.frase p{font:400 clamp(2.2rem,5.6vw,4.8rem)/1.08 var(--serif);letter-spacing:-.015em;max-width:18ch;margin:0}
+.frase p+p{margin-left:auto;text-align:right;margin-top:.15em}
+.frase figcaption{margin-top:40px;font-size:.95rem;color:var(--texto-suave)}
+
+/* Abordagem */
+.pilares{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px);margin-top:56px}
+.pilares h3{font-size:1.6rem;margin-bottom:14px}
+.pilares p{color:var(--texto-suave)}
+@media (max-width:799px){.pilares{grid-template-columns:1fr}}
+
+/* Tratamentos */
+.tratamentos{background:#FBF9F6}
+.lista-trat{list-style:none;margin:56px 0 0;padding:0;border-top:1px solid var(--taupe)}
+.lista-trat li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) auto;gap:16px 48px;align-items:baseline;padding-block:36px;border-bottom:1px solid var(--taupe)}
+.lista-trat h3{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.lista-trat p{margin:0;color:var(--texto-suave)}
+.lista-trat a{white-space:nowrap}
+@media (max-width:899px){.lista-trat li{grid-template-columns:1fr}}
+
+/* Como funciona */
+.passos{list-style:none;counter-reset:passo;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
+.passos li{counter-increment:passo;border-top:1px solid var(--marrom);padding-top:20px}
+.passos li::before{content:counter(passo);display:block;font:400 3rem/1 var(--serif);margin-bottom:20px}
+.passos h3{font:500 1.15rem/1.3 var(--sans);margin-bottom:10px}
+.passos p{color:var(--texto-suave);font-size:1rem}
+@media (max-width:999px){.passos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:599px){.passos{grid-template-columns:1fr}}
+
+/* Dúvidas */
+.duvidas .envolto{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
+.duvidas details{border-bottom:1px solid var(--taupe)}
+.duvidas details:first-child{border-top:1px solid var(--taupe)}
+.duvidas summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;padding:24px 0;font:400 1.3rem/1.35 var(--serif)}
+.duvidas summary::-webkit-details-marker{display:none}
+.duvidas summary::after{content:"+";font:300 1.6rem/1 var(--sans);transition:transform .25s}
+.duvidas details[open] summary::after{transform:rotate(45deg)}
+.duvidas details p{color:var(--texto-suave);padding-bottom:20px}
+@media (max-width:799px){.duvidas .envolto{grid-template-columns:1fr}}
+
+/* Contato */
+.contato{background:var(--noite);color:var(--marfim)}
+.contato .envolto{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,112px);align-items:center}
+.contato__foto{margin:0}
+.contato__foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
+.contato .intro{color:var(--texto-claro)}
+.contato__acoes{display:flex;flex-wrap:wrap;gap:16px;margin-top:36px}
+.botao--contorno{border:1px solid rgb(246 243 238 / .5);color:var(--marfim)}
+.botao--contorno:hover{background:rgb(246 243 238 / .08)}
+.locais{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin-top:56px;padding-top:32px;border-top:1px solid rgb(246 243 238 / .2)}
+.locais h3{font-size:1.4rem;margin-bottom:10px}
+.locais p{color:var(--texto-claro);font-size:.98rem;margin:0}
+.contato .pend::after{background:#5B4A2E;color:#F3E6C4}
+@media (max-width:799px){.contato .envolto{grid-template-columns:1fr}.contato__foto{order:2}.locais{grid-template-columns:1fr}}
+
+/* Rodapé */
+.rodape{background:var(--grafite);color:var(--texto-claro);padding-block:56px;font-size:.95rem}
+.rodape .envolto{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px}
+.rodape strong{display:block;font:400 1.3rem var(--serif);color:var(--marfim);margin-bottom:6px}
+.rodape p{margin:0}
+.rodape nav{display:flex;flex-wrap:wrap;gap:12px 24px}
+.rodape nav a{text-decoration:none}
+.rodape nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.rodape .pend::after{background:#5B4A2E;color:#F3E6C4}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envolto">
+    <a class="marca" href="#inicio" aria-label="Dra. Ana Cláudia Reis, início">
+      <!-- Wordmark provisório em texto: substituir pela logo oficial (SVG) da cliente. -->
+      <strong>Dra. Ana Cláudia Reis</strong>
+      <span>Cirurgiã-dentista</span>
+    </a>
+    <button class="menu-botao" popovertarget="menu" aria-label="Abrir menu">Menu</button>
+    <nav id="menu" popover aria-label="Navegação principal">
+      <button class="menu-botao menu-fechar" popovertarget="menu" popovertargetaction="hide">Fechar</button>
+      <a href="#sobre">Sobre</a>
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#contato">Contato</a>
+      <a class="botao botao--claro" href="#contato">Agendar avaliação</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="hero" id="inicio" aria-labelledby="titulo">
+    <div class="envolto">
+      <div class="hero__texto">
+        <h1 id="titulo">Naturalidade e elegância em cada detalhe</h1>
+        <p class="hero__sub">Um olhar individualizado para valorizar sua beleza e respeitar aquilo que faz você ser única.</p>
+        <div class="hero__acoes">
+          <a class="botao botao--claro" href="#contato">Agendar avaliação</a>
+          <a class="link" href="#sobre">Conheça a profissional</a>
+        </div>
+        <p class="hero__local">Atendimento em Carmo da Cachoeira, Varginha e região</p>
+      </div>
+      <figure class="hero__foto">
+        <img src="assets/retrato-estudio-1000.webp" srcset="assets/retrato-estudio-640.webp 640w, assets/retrato-estudio-1000.webp 1000w" sizes="(max-width:899px) 100vw, 40vw" width="1000" height="1776" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <section class="secao sobre" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="envolto">
+      <figure class="sobre__foto">
+        <img src="assets/retrato-sofa-900.webp" srcset="assets/retrato-sofa-560.webp 560w, assets/retrato-sofa-900.webp 900w" sizes="(max-width:799px) 90vw, 40vw" width="900" height="900" alt="Dra. Ana Cláudia Reis sentada, com blazer preto, olhando para o lado" loading="lazy">
+      </figure>
+      <div>
+        <h2 id="sobre-titulo">O cuidado começa pela escuta</h2>
+        <p>A Dra. Ana Cláudia Reis é cirurgiã-dentista e atende em Carmo da Cachoeira, Varginha e região, com foco em harmonização facial.</p>
+        <p>Antes de falar em procedimento, ela quer entender o que você gosta no seu rosto, o que incomoda e o que espera. A proposta é cuidar dos detalhes sem apagar seus traços: um resultado que pareça você.</p>
+        <p class="pend">Formação, cursos e trajetória profissional</p>
+        <p class="sobre__registro"><strong>Dra. Ana Cláudia Reis</strong><span class="pend">CRO-MG 62571</span></p>
+      </div>
+    </div>
+  </section>
+
+  <figure class="frase">
+    <div class="envolto">
+      <blockquote>
+        <p>Beleza não é transformação.</p>
+        <p>É potencialização.</p>
+      </blockquote>
+      <figcaption>Dra. Ana Cláudia Reis</figcaption>
+    </div>
+  </figure>
+
+  <section class="secao abordagem" aria-labelledby="abordagem-titulo">
+    <div class="envolto">
+      <h2 id="abordagem-titulo">Sem fórmula pronta</h2>
+      <p class="intro">Cada rosto tem proporções, expressões e uma história próprias. O atendimento parte disso.</p>
+      <div class="pilares">
+        <div>
+          <h3>Escuta</h3>
+          <p>A consulta começa pelo que você sente e espera, antes de qualquer indicação.</p>
+        </div>
+        <div>
+          <h3>Avaliação individual</h3>
+          <p>Proporções, expressão e histórico de saúde são analisados no seu rosto, e não a partir de um padrão.</p>
+        </div>
+        <div>
+          <h3>Plano compartilhado</h3>
+          <p>Você conhece as opções e os limites de cada uma, e decide junto com a profissional. Não fazer nada também é uma resposta possível.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao tratamentos" id="tratamentos" aria-labelledby="tratamentos-titulo">
+    <div class="envolto">
+      <h2 id="tratamentos-titulo">Tratamentos</h2>
+      <p class="intro">A indicação de cada procedimento depende da avaliação presencial.</p>
+      <ul class="lista-trat">
+        <li>
+          <h3>Harmonização facial</h3>
+          <p>Conjunto de procedimentos planejados para equilibrar as proporções do rosto, respeitando seus traços. O plano é definido depois da avaliação.</p>
+          <a class="link" href="#contato">Agendar avaliação</a>
+        </li>
+        <li>
+          <h3>Toxina botulínica (botox)</h3>
+          <p>Suaviza a contração de músculos ligados a algumas linhas de expressão. Pontos e dose são definidos para o seu rosto.</p>
+          <a class="link" href="#contato">Agendar avaliação</a>
+        </li>
+        <li>
+          <h3>Preenchimento labial</h3>
+          <p>Ácido hialurônico para contorno, hidratação ou volume dos lábios, na medida que respeita a proporção do seu rosto.</p>
+          <a class="link" href="#contato">Agendar avaliação</a>
+        </li>
+        <li>
+          <h3 class="pend">Rinomodelação</h3>
+          <p>Preenchimento que pode suavizar irregularidades do perfil do nariz, sem cirurgia. Indicação restrita, definida na avaliação.</p>
+          <a class="link" href="#contato">Agendar avaliação</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
+    <div class="envolto">
+      <h2 id="como-titulo">Como funciona</h2>
+      <p class="intro"><span class="pend">Etapas conforme o processo real do consultório</span></p>
+      <ol class="passos">
+        <li>
+          <h3>Contato</h3>
+          <p>Você envia uma mensagem contando o que gostaria de avaliar.</p>
+        </li>
+        <li>
+          <h3>Agendamento</h3>
+          <p>Vocês combinam data, horário e local da consulta.</p>
+        </li>
+        <li>
+          <h3>Consulta de avaliação</h3>
+          <p>Conversa, análise do rosto e do histórico de saúde. Se houver indicação, você conhece as opções e seus limites.</p>
+        </li>
+        <li>
+          <h3>Orientações</h3>
+          <p>Você recebe as orientações de cuidado e sabe o que esperar nos dias seguintes a qualquer procedimento.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao duvidas" id="duvidas" aria-labelledby="duvidas-titulo" style="background:#FBF9F6">
+    <div class="envolto">
+      <div>
+        <h2 id="duvidas-titulo">Dúvidas frequentes</h2>
+        <p class="intro"><span class="pend">Respostas revisadas pela profissional</span></p>
+      </div>
+      <div>
+        <details>
+          <summary>Preciso de avaliação antes de um procedimento?</summary>
+          <p>Sim. A indicação depende da avaliação presencial, que também é o momento de tirar dúvidas e decidir com calma.</p>
+        </details>
+        <details>
+          <summary>Como faço para agendar?</summary>
+          <p>Envie uma mensagem pelo Instagram <a class="link" href="https://ig.me/m/draanaclaudiareis_">@draanaclaudiareis_</a> dizendo o que gostaria de avaliar e em qual cidade prefere ser atendida.</p>
+        </details>
+        <details>
+          <summary>Onde é o atendimento?</summary>
+          <p>Em Carmo da Cachoeira e Varginha. <span class="pend">Endereços e horários</span></p>
+        </details>
+        <details>
+          <summary>Como me preparar para a consulta?</summary>
+          <p>Leve a lista de medicamentos que usa e conte sobre alergias, condições de saúde e procedimentos estéticos que já fez.</p>
+        </details>
+        <details>
+          <summary>Dentista pode fazer harmonização facial?</summary>
+          <p>Sim. A harmonização orofacial faz parte da atuação do cirurgião-dentista e é regulamentada pelo Conselho Federal de Odontologia.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao contato" id="contato" aria-labelledby="contato-titulo">
+    <div class="envolto">
+      <figure class="contato__foto">
+        <img src="assets/retrato-perfil-800.webp" srcset="assets/retrato-perfil-480.webp 480w, assets/retrato-perfil-800.webp 800w" sizes="(max-width:799px) 90vw, 40vw" width="800" height="800" alt="Dra. Ana Cláudia Reis, retrato em ambiente interno" loading="lazy">
+      </figure>
+      <div>
+        <h2 id="contato-titulo">Agende sua avaliação</h2>
+        <p class="intro">Conte o que gostaria de avaliar e em qual cidade prefere ser atendida. Não é preciso enviar dados de saúde por mensagem.</p>
+        <div class="contato__acoes">
+          <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Enviar mensagem no Instagram</a>
+          <!-- Quando o número for confirmado, trocar por:
+               https://wa.me/55DDDNUMERO?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20agendamento%20de%20uma%20avalia%C3%A7%C3%A3o. -->
+          <span class="botao botao--contorno pend" aria-disabled="true">WhatsApp</span>
+        </div>
+        <div class="locais">
+          <div>
+            <h3>Carmo da Cachoeira</h3>
+            <p class="pend">Endereço e horários</p>
+          </div>
+          <div>
+            <h3>Varginha</h3>
+            <p class="pend">Endereço e horários</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="envolto">
+    <div>
+      <strong>Dra. Ana Cláudia Reis</strong>
+      <p>Cirurgiã-dentista, responsável técnica</p>
+      <p class="pend">CRO-MG 62571</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <a href="#sobre">Sobre</a>
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#contato">Contato</a>
+      <a href="https://www.instagram.com/draanaclaudiareis_/">Instagram</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Fecha o menu mobile ao escolher um link.
+const menu = document.getElementById('menu');
+menu.addEventListener('click', e => { if (e.target.closest('a') && menu.matches(':popover-open')) menu.hidePopover(); });
+</script>
+</body>
+</html>
