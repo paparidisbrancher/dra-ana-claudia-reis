@@ -12,7 +12,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Dra. Ana Cláudia Reis">
 <meta property="og:description" content="Naturalidade e elegância em cada detalhe. Agende sua avaliação.">
-<meta property="og:image" content="assets/og.jpg">
+<meta property="og:image" content="https://paparidisbrancher.github.io/dra-ana-claudia-reis/assets/og.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
@@ -141,7 +141,16 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 .lista-trat a{white-space:nowrap}
 @media (max-width:899px){.lista-trat li{grid-template-columns:1fr}}
 
+/* Resultados */
+.galeria{columns:3 300px;column-gap:24px;margin-top:56px}
+.galeria img{width:100%;margin-bottom:24px;break-inside:avoid;background:var(--areia)}
+@media (max-width:699px){
+  .galeria{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1*var(--gutter));padding:0 var(--gutter) 12px;scroll-padding-inline:var(--gutter)}
+  .galeria img{flex:0 0 82%;height:auto;align-self:flex-start;margin:0;scroll-snap-align:start}
+}
+
 /* Como funciona */
+#como-funciona{background:#FBF9F6}
 .passos{list-style:none;counter-reset:passo;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
 .passos li{counter-increment:passo;border-top:1px solid var(--marrom);padding-top:20px}
 .passos li::before{content:counter(passo);display:block;font:400 3rem/1 var(--serif);margin-bottom:20px}
@@ -202,6 +211,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
       <button class="menu-botao menu-fechar" popovertarget="menu" popovertargetaction="hide">Fechar</button>
       <a href="#sobre">Sobre</a>
       <a href="#tratamentos">Tratamentos</a>
+      <a href="#resultados">Resultados</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#duvidas">Dúvidas</a>
       <a href="#contato">Contato</a>
@@ -303,6 +313,21 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
     </div>
   </section>
 
+  <section class="secao" id="resultados" aria-labelledby="resultados-titulo">
+    <div class="envolto">
+      <h2 id="resultados-titulo">Resultados</h2>
+      <p class="intro">Pacientes atendidas pela Dra. Ana Cláudia Reis, com imagens publicadas com autorização. Cada rosto responde de um jeito: o resultado depende da avaliação e do plano individual.</p>
+      <div class="galeria" tabindex="0" aria-label="Fotos de antes e depois">
+        <img src="assets/resultado-1-900.webp" srcset="assets/resultado-1-560.webp 560w, assets/resultado-1-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1059" alt="Antes e depois de paciente, vista frontal" loading="lazy">
+        <img src="assets/resultado-2-900.webp" srcset="assets/resultado-2-560.webp 560w, assets/resultado-2-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1099" alt="Antes e depois de paciente, vista oblíqua" loading="lazy">
+        <img src="assets/resultado-3-900.webp" srcset="assets/resultado-3-560.webp 560w, assets/resultado-3-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1106" alt="Paciente em 2023 e em 2026, vista frontal" loading="lazy">
+        <img src="assets/resultado-4-900.webp" srcset="assets/resultado-4-560.webp 560w, assets/resultado-4-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1200" alt="Antes e depois de paciente, perfil" loading="lazy">
+        <img src="assets/resultado-5-900.webp" srcset="assets/resultado-5-560.webp 560w, assets/resultado-5-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="886" alt="Antes e depois de paciente, vista oblíqua" loading="lazy">
+        <img src="assets/resultado-6-900.webp" srcset="assets/resultado-6-560.webp 560w, assets/resultado-6-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1095" alt="Antes e depois do perfil do nariz de paciente, vista lateral" loading="lazy">
+      </div>
+    </div>
+  </section>
+
   <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
     <div class="envolto">
       <h2 id="como-titulo">Como funciona</h2>
@@ -328,7 +353,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
     </div>
   </section>
 
-  <section class="secao duvidas" id="duvidas" aria-labelledby="duvidas-titulo" style="background:#FBF9F6">
+  <section class="secao duvidas" id="duvidas" aria-labelledby="duvidas-titulo">
     <div class="envolto">
       <div>
         <h2 id="duvidas-titulo">Dúvidas frequentes</h2>

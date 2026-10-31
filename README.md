@@ -3,6 +3,8 @@
 Site estático de uma página: `index.html`, `404.html`, `assets/`, `fonts/`. Sem build e sem scripts externos.
 Abra com qualquer servidor estático (ex.: `python -m http.server`).
 
+Demonstração: https://paparidisbrancher.github.io/dra-ana-claudia-reis/ (repo `paparidisbrancher/dra-ana-claudia-reis`, Pages na `main`).
+
 Enquanto estiver em aprovação: `noindex` no `<head>` e `robots.txt` bloqueando buscadores. Remover os dois na publicação.
 
 ## Pendências com a cliente
@@ -21,19 +23,22 @@ Tudo o que aparece no site com a etiqueta **"a confirmar"** (classe `pend` no HT
 - [ ] Paleta oficial (as cores atuais são provisórias, ver `:root` no `index.html`)
 - [ ] Domínio final (para `og:image` com URL completa, `canonical` e sitemap)
 
-Ficaram de fora até haver material revisado e autorização: **resultados/antes e depois** de pacientes (exige autorização específica e conferência das normas do CFO) e **conteúdos educativos**.
+Fica de fora até haver material revisado por ela: **conteúdos educativos**.
 
 ## Imagens
 
-| Arquivo | Origem (pasta do Instagram) | Uso | Autorização |
-|---|---|---|---|
-| `retrato-estudio-*.webp` | `03addf2f82ffd7e8.jpg` | Hero | pendente |
-| `retrato-sofa-*.webp` | `a7d6e708c5347702.jpg` (recortada sem o texto "Posso ser sincera?") | Sobre | pendente |
-| `retrato-perfil-*.webp` | `foto-perfil-instagram.jpg` | Contato | pendente |
-| `og.jpg` | recorte do retrato de estúdio | Compartilhamento | pendente |
+Autorização: segundo o Erick (31/10/2026), as fotos publicadas no Instagram da doutora já têm autorização das pacientes. Os antes e depois mantêm o nome e o CRO gravados na própria foto, como no Instagram.
+
+| Arquivo | Origem (pasta do Instagram) | Uso |
+|---|---|---|
+| `retrato-estudio-*.webp` | `03addf2f82ffd7e8.jpg` | Hero |
+| `retrato-sofa-*.webp` | `a7d6e708c5347702.jpg` (recortada sem o texto "Posso ser sincera?") | Sobre |
+| `retrato-perfil-*.webp` | `foto-perfil-instagram.jpg` | Contato |
+| `og.jpg` | recorte do retrato de estúdio | Compartilhamento |
+| `resultado-1..6-*.webp` | `b1018054`, `edd23edf`, `77448bde`, `f5277607`, `c902e045` (recortada sem a legenda), `da61737a` | Resultados |
 
 São capturas comprimidas do Instagram. Pedir os originais em alta resolução à cliente.
-Não usadas: fotos de pacientes (antes/depois, lábios), a foto no barco e a selfie com adesivo.
+Não usadas: close-ups de lábios, a foto no barco e a selfie com adesivo.
 
 ## Tipografia e cores
 
