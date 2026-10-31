@@ -250,6 +250,45 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 .rodape nav a{text-decoration:none}
 .rodape nav a:hover{text-decoration:underline;text-underline-offset:5px}
 .rodape .pend::after{background:#5B4A2E;color:#F3E6C4}
+
+/* Refinamento editorial e navegação — outubro 2026 */
+body::after{display:none}
+.topo{position:sticky;top:0;z-index:15;border-bottom:1px solid #ffffff18}
+section[id]{scroll-margin-top:100px}
+.eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-claro);margin-bottom:24px}
+.hero__texto{padding-block:clamp(40px,6vw,88px)}
+.hero h1{font-size:clamp(2.8rem,5.7vw,5rem);max-width:12ch}
+.hero__foto img{max-height:720px}
+.hero__local{margin-top:32px}
+.pilares{counter-reset:pilar}
+.pilares>div{counter-increment:pilar;border-top:1px solid var(--taupe);padding-top:24px}
+.pilares>div::before{content:"0" counter(pilar);display:block;font-size:.8rem;letter-spacing:.1em;color:var(--texto-suave);margin-bottom:24px}
+.galeria-ajuda{font-size:.95rem;color:var(--texto-suave);margin-top:20px}
+.galeria{margin-top:30px}
+.resultado{display:block;break-inside:avoid;text-decoration:none;margin-bottom:28px}
+.resultado img{margin-bottom:0}
+.resultado span{display:block;padding:12px 0;font-size:.9rem;border-bottom:1px solid var(--taupe)}
+.resultado:hover span{text-decoration:underline;text-underline-offset:4px}
+.botao{gap:12px}
+.contato-mobile{display:none}
+@media(min-width:900px){#menu{gap:18px}.topo .envolto{min-height:78px}.hero__foto img{aspect-ratio:4/5;object-position:50% 24%}}
+@media(max-width:899px){
+ .hero__texto{padding-top:38px}
+ .hero__foto{margin-inline:0}
+ .hero__foto img{aspect-ratio:5/4;object-position:50% 24%}
+ .hero{padding-bottom:28px}
+ .hero h1{font-size:clamp(2.65rem,9vw,4.5rem)}
+ .hero__local{font-size:.88rem;margin-top:24px}
+}
+@media(max-width:699px){
+ .galeria .resultado{flex:0 0 86%;scroll-snap-align:start;margin:0;min-width:0}
+ .galeria .resultado img{width:100%;height:auto;max-width:100%}
+ .contato-mobile{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:16;align-items:center;justify-content:space-between;padding:16px 24px calc(16px + env(safe-area-inset-bottom));background:var(--marrom);color:var(--marfim);font-weight:500;text-decoration:none;border-top:1px solid #ffffff30;--foco:var(--marfim)}
+ body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+ .secao{padding-block:64px}
+ .frase{padding-block:60px}
+ .marca strong{font-size:1.12rem}
+}
 </style>
 </head>
 <body>
@@ -271,7 +310,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
       <a href="#como-funciona">Como funciona</a>
       <a href="#duvidas">Dúvidas</a>
       <a href="#contato">Contato</a>
-      <a class="botao botao--claro" href="#contato">Agendar avaliação</a>
+      <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
     </nav>
   </div>
 </header>
@@ -280,10 +319,11 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
   <section class="hero" id="inicio" aria-labelledby="titulo">
     <div class="envolto">
       <div class="hero__texto">
+        <p class="eyebrow">Harmonização facial · Minas Gerais</p>
         <h1 id="titulo">Naturalidade e elegância em cada detalhe</h1>
         <p class="hero__sub">Um olhar individualizado para valorizar sua beleza e respeitar aquilo que faz você ser única.</p>
         <div class="hero__acoes">
-          <a class="botao botao--claro" href="#contato">Agendar avaliação</a>
+          <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
           <a class="link" href="#sobre">Conheça a profissional</a>
         </div>
         <p class="hero__local">Atendimento em Carmo da Cachoeira, Varginha e região</p>
@@ -303,8 +343,8 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         <h2 id="sobre-titulo">O cuidado começa pela escuta</h2>
         <p>A Dra. Ana Cláudia Reis é cirurgiã-dentista e atende em Carmo da Cachoeira, Varginha e região, com foco em harmonização facial.</p>
         <p>Antes de falar em procedimento, ela quer entender o que você gosta no seu rosto, o que incomoda e o que espera. A proposta é cuidar dos detalhes sem apagar seus traços: um resultado que pareça você.</p>
-        <p class="pend">Formação, cursos e trajetória profissional</p>
-        <p class="sobre__registro"><strong>Dra. Ana Cláudia Reis</strong><span class="pend">CRO-MG 62571</span></p>
+        <!-- Formação e trajetória aguardam confirmação no README. -->
+        <p class="sobre__registro"><strong>Dra. Ana Cláudia Reis</strong><span>CRO-MG 62571 · informado no perfil profissional</span></p>
       </div>
     </div>
   </section>
@@ -348,23 +388,19 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         <li>
           <h3>Harmonização facial</h3>
           <p>Conjunto de procedimentos planejados para equilibrar as proporções do rosto, respeitando seus traços. O plano é definido depois da avaliação.</p>
-          <a class="link" href="#contato">Agendar avaliação</a>
+          <a class="link" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
         </li>
         <li>
           <h3>Toxina botulínica (botox)</h3>
           <p>Suaviza a contração de músculos ligados a algumas linhas de expressão. Pontos e dose são definidos para o seu rosto.</p>
-          <a class="link" href="#contato">Agendar avaliação</a>
+          <a class="link" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
         </li>
         <li>
           <h3>Preenchimento labial</h3>
           <p>Ácido hialurônico para contorno, hidratação ou volume dos lábios, na medida que respeita a proporção do seu rosto.</p>
-          <a class="link" href="#contato">Agendar avaliação</a>
+          <a class="link" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
         </li>
-        <li>
-          <h3 class="pend">Rinomodelação</h3>
-          <p>Preenchimento que pode suavizar irregularidades do perfil do nariz, sem cirurgia. Indicação restrita, definida na avaliação.</p>
-          <a class="link" href="#contato">Agendar avaliação</a>
-        </li>
+        <!-- Rinomodelação: oferta atual a confirmar antes de exibir. -->
       </ul>
     </div>
   </section>
@@ -373,13 +409,14 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
     <div class="envolto">
       <h2 id="resultados-titulo">Resultados</h2>
       <p class="intro">Pacientes atendidas pela Dra. Ana Cláudia Reis, com imagens publicadas com autorização. Cada rosto responde de um jeito: o resultado depende da avaliação e do plano individual.</p>
+      <p class="galeria-ajuda">Selecione uma foto para ver em alta resolução.</p>
       <div class="galeria" role="region" tabindex="0" aria-label="Fotos de antes e depois">
-        <img src="assets/resultado-1-900.webp" srcset="assets/resultado-1-560.webp 560w, assets/resultado-1-900.webp 900w, assets/resultado-1-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1059" alt="Antes e depois de paciente, vista frontal" loading="lazy">
-        <img src="assets/resultado-2-900.webp" srcset="assets/resultado-2-560.webp 560w, assets/resultado-2-900.webp 900w, assets/resultado-2-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1099" alt="Antes e depois de paciente, vista oblíqua" loading="lazy">
-        <img src="assets/resultado-3-900.webp" srcset="assets/resultado-3-560.webp 560w, assets/resultado-3-900.webp 900w, assets/resultado-3-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1106" alt="Paciente em 2023 e em 2026, vista frontal" loading="lazy">
-        <img src="assets/resultado-4-900.webp" srcset="assets/resultado-4-560.webp 560w, assets/resultado-4-900.webp 900w, assets/resultado-4-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1200" alt="Antes e depois de paciente, perfil" loading="lazy">
-        <img src="assets/resultado-5-900.webp" srcset="assets/resultado-5-560.webp 560w, assets/resultado-5-900.webp 900w, assets/resultado-5-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="886" alt="Antes e depois de paciente, vista oblíqua" loading="lazy">
-        <img src="assets/resultado-6-900.webp" srcset="assets/resultado-6-560.webp 560w, assets/resultado-6-900.webp 900w, assets/resultado-6-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1095" alt="Antes e depois do perfil do nariz de paciente, vista lateral" loading="lazy">
+        <a class="resultado" href="assets/resultado-1-hd.webp" target="_blank" rel="noopener" aria-label="Ampliar resultado 1 em nova aba"><img src="assets/resultado-1-900.webp" srcset="assets/resultado-1-560.webp 560w, assets/resultado-1-900.webp 900w, assets/resultado-1-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1059" alt="Antes e depois de paciente, vista frontal" loading="lazy"><span>Ver em detalhe ↗</span></a>
+        <a class="resultado" href="assets/resultado-2-hd.webp" target="_blank" rel="noopener" aria-label="Ampliar resultado 2 em nova aba"><img src="assets/resultado-2-900.webp" srcset="assets/resultado-2-560.webp 560w, assets/resultado-2-900.webp 900w, assets/resultado-2-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1099" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span>Ver em detalhe ↗</span></a>
+        <a class="resultado" href="assets/resultado-3-hd.webp" target="_blank" rel="noopener" aria-label="Ampliar resultado 3 em nova aba"><img src="assets/resultado-3-900.webp" srcset="assets/resultado-3-560.webp 560w, assets/resultado-3-900.webp 900w, assets/resultado-3-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1106" alt="Paciente em 2023 e em 2026, vista frontal" loading="lazy"><span>Ver em detalhe ↗</span></a>
+        <a class="resultado" href="assets/resultado-4-hd.webp" target="_blank" rel="noopener" aria-label="Ampliar resultado 4 em nova aba"><img src="assets/resultado-4-900.webp" srcset="assets/resultado-4-560.webp 560w, assets/resultado-4-900.webp 900w, assets/resultado-4-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1200" alt="Antes e depois de paciente, perfil" loading="lazy"><span>Ver em detalhe ↗</span></a>
+        <a class="resultado" href="assets/resultado-5-hd.webp" target="_blank" rel="noopener" aria-label="Ampliar resultado 5 em nova aba"><img src="assets/resultado-5-900.webp" srcset="assets/resultado-5-560.webp 560w, assets/resultado-5-900.webp 900w, assets/resultado-5-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="886" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span>Ver em detalhe ↗</span></a>
+        <a class="resultado" href="assets/resultado-6-hd.webp" target="_blank" rel="noopener" aria-label="Ampliar resultado 6 em nova aba"><img src="assets/resultado-6-900.webp" srcset="assets/resultado-6-560.webp 560w, assets/resultado-6-900.webp 900w, assets/resultado-6-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1095" alt="Antes e depois do perfil do nariz de paciente, vista lateral" loading="lazy"><span>Ver em detalhe ↗</span></a>
       </div>
     </div>
   </section>
@@ -387,7 +424,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
   <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
     <div class="envolto">
       <h2 id="como-titulo">Como funciona</h2>
-      <p class="intro"><span class="pend">Etapas conforme o processo real do consultório</span></p>
+      <p class="intro">Comece com uma conversa. Consulte os detalhes do atendimento ao agendar.</p>
       <ol class="passos">
         <li>
           <h3>Contato</h3>
@@ -413,7 +450,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
     <div class="envolto">
       <div>
         <h2 id="duvidas-titulo">Dúvidas frequentes</h2>
-        <p class="intro"><span class="pend">Respostas revisadas pela profissional</span></p>
+        <p class="intro">Informações para dar o primeiro passo. Para orientações individuais, converse com a profissional.</p>
       </div>
       <div>
         <details>
@@ -426,7 +463,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         </details>
         <details>
           <summary>Onde é o atendimento?</summary>
-          <p>Em Carmo da Cachoeira e Varginha. <span class="pend">Endereços e horários</span></p>
+          <p>Em Carmo da Cachoeira e Varginha. Confirme endereço e disponibilidade pelo Instagram.</p>
         </details>
         <details>
           <summary>Como me preparar para a consulta?</summary>
@@ -452,29 +489,30 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
           <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Enviar mensagem no Instagram</a>
           <!-- Quando o número for confirmado, trocar por:
                https://wa.me/55DDDNUMERO?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20agendamento%20de%20uma%20avalia%C3%A7%C3%A3o. -->
-          <span class="botao botao--contorno pend" aria-disabled="true">WhatsApp</span>
+          
         </div>
         <div class="locais">
           <div>
             <h3>Carmo da Cachoeira</h3>
-            <p class="pend">Endereço e horários</p>
+            <p>Consulte endereço e disponibilidade no agendamento.</p>
           </div>
           <div>
             <h3>Varginha</h3>
-            <p class="pend">Endereço e horários</p>
+            <p>Consulte endereço e disponibilidade no agendamento.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 </main>
+<a class="contato-mobile" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram <span aria-hidden="true">↗</span></a>
 
 <footer class="rodape">
   <div class="envolto">
     <div>
       <strong>Dra. Ana Cláudia Reis</strong>
       <p>Cirurgiã-dentista, responsável técnica</p>
-      <p class="pend">CRO-MG 62571</p>
+      <p>CRO-MG 62571 · informado no perfil profissional</p>
     </div>
     <nav aria-label="Rodapé">
       <a href="#sobre">Sobre</a>
