@@ -40,6 +40,16 @@ Autorização: segundo o Erick (31/10/2026), as fotos publicadas no Instagram da
 São capturas comprimidas do Instagram. Pedir os originais em alta resolução à cliente.
 Não usadas: close-ups de lábios, a foto no barco e a selfie com adesivo.
 
+## SEO
+
+Feito: título e descrição com tratamento e cidades, `canonical`, Open Graph e cartão do X/Twitter, dados estruturados (`Dentist` em JSON-LD, só com dados confirmados), `sitemap.xml`, ícones PNG e um único `h1`.
+
+Para publicar de verdade:
+1. Domínio próprio: trocar `https://paparidisbrancher.github.io/dra-ana-claudia-reis/` em `index.html` (canonical, og, JSON-LD) e no `sitemap.xml`.
+2. Tirar o `noindex` do `<head>` e trocar `Disallow: /` por `Allow: /` no `robots.txt`. No GitHub Pages de projeto o robots.txt nem é lido (só vale o da raiz do domínio); quem segura o site fora do Google é o `noindex`.
+3. Cadastrar o domínio no Google Search Console e enviar o sitemap.
+4. Ao confirmar endereço, telefone, horários e CRO: acrescentar ao JSON-LD (`address`, `telephone`, `openingHoursSpecification`) e escrever exatamente igual no Perfil da Empresa no Google. Para busca local ("harmonização facial Varginha") é esse perfil que mais pesa, mais do que o site.
+
 ## Tipografia e cores
 
 - Títulos: Bodoni Moda. Texto: Jost (geométrica, próxima da assinatura usada nas fotos). Ambas OFL, servidas de `fonts/`.
