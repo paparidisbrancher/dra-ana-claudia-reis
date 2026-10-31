@@ -289,6 +289,55 @@ section[id]{scroll-margin-top:100px}
  .frase{padding-block:60px}
  .marca strong{font-size:1.12rem}
 }
+
+/* Compact layout and consistent, uncropped clinical comparisons. */
+.secao{padding-block:clamp(40px,5vw,72px)}
+.frase{padding-block:40px}
+.frase p{font-size:clamp(1.9rem,3.5vw,3rem)}
+.frase figcaption{margin-top:20px}
+.hero__texto{padding-block:36px}
+.hero h1{font-size:clamp(2.6rem,4.8vw,4.4rem)}
+.hero .envolto{align-items:center;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.hero__foto{width:100%;max-width:420px;justify-self:end}
+.hero__foto img{aspect-ratio:4/5;max-height:525px;object-position:50% 28%;mask-image:none;-webkit-mask-image:none}
+.hero__sub{margin-top:20px}
+.hero__acoes{margin-top:24px}
+.hero__local{margin-top:24px}
+.sobre .envolto,.contato .envolto{gap:clamp(28px,5vw,64px)}
+.sobre__foto{max-width:440px}
+.sobre__foto img{aspect-ratio:1.32;object-fit:contain}
+.contato__foto{max-width:360px}
+.contato__foto img{aspect-ratio:1;object-fit:contain}
+.pilares,.passos,.lista-trat{margin-top:28px}
+.lista-trat li{padding-block:24px}
+.locais{margin-top:28px;padding-top:24px}
+.galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;columns:auto;overflow:visible;margin:24px 0 0;padding:0}
+.galeria .resultado{display:flex;flex-direction:column;min-width:0;margin:0}
+.galeria .resultado img{width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;background:#E8DFD5;margin:0}
+.galeria .resultado span{margin-top:auto}
+@media(max-width:899px){
+ .hero .envolto{grid-template-columns:1fr 1fr;gap:24px}
+ .hero h1{font-size:clamp(2.2rem,5vw,3.4rem)}
+ .hero__foto{margin:0}
+ .hero__foto img{aspect-ratio:4/5}
+ .hero{padding-bottom:20px}
+}
+@media(max-width:699px){
+ .hero .envolto{grid-template-columns:1fr;gap:0}
+ .hero__texto{padding-block:24px}
+ .hero h1{font-size:clamp(2.5rem,9vw,3.4rem)}
+ .hero__foto{max-width:340px;justify-self:center}
+ .hero__foto img{max-height:350px;aspect-ratio:1;object-position:50% 22%}
+ .galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}
+ .galeria .resultado{min-width:0}
+ .galeria .resultado span{font-size:.8rem}
+ .secao{padding-block:36px}
+ .sobre__foto{margin-left:0}
+ .sobre__foto::before{display:none}
+ .frase{padding-block:32px}
+ .passos{gap:24px}
+ .rodape{padding-block:32px}
+}
 </style>
 </head>
 <body>
@@ -329,7 +378,7 @@ section[id]{scroll-margin-top:100px}
         <p class="hero__local">Atendimento em Carmo da Cachoeira, Varginha e região</p>
       </div>
       <figure class="hero__foto">
-        <img src="assets/retrato-estudio-1000.webp" srcset="assets/retrato-estudio-640.webp 640w, assets/retrato-estudio-1000.webp 1000w, assets/retrato-estudio-hd.webp 1200w" sizes="(max-width:899px) 100vw, 40vw" width="1000" height="1776" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" fetchpriority="high">
+        <img src="assets/retrato-estudio-hd.webp" width="1000" height="1776" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" fetchpriority="high">
       </figure>
     </div>
   </section>
@@ -337,7 +386,7 @@ section[id]{scroll-margin-top:100px}
   <section class="secao sobre" id="sobre" aria-labelledby="sobre-titulo">
     <div class="envolto">
       <figure class="sobre__foto">
-        <img src="assets/retrato-sofa-900.webp" srcset="assets/retrato-sofa-560.webp 560w, assets/retrato-sofa-900.webp 900w" sizes="(max-width:799px) 90vw, 40vw" width="900" height="900" alt="Dra. Ana Cláudia Reis sentada, com blazer preto, olhando para o lado" loading="lazy">
+        <img src="assets/retrato-sofa-hd.webp" width="1320" height="1000" alt="Dra. Ana Cláudia Reis sentada, com blazer preto, olhando para o lado" loading="lazy">
       </figure>
       <div>
         <h2 id="sobre-titulo">O cuidado começa pela escuta</h2>
@@ -480,7 +529,7 @@ section[id]{scroll-margin-top:100px}
   <section class="secao contato" id="contato" aria-labelledby="contato-titulo">
     <div class="envolto">
       <figure class="contato__foto">
-        <img src="assets/retrato-perfil-800.webp" srcset="assets/retrato-perfil-480.webp 480w, assets/retrato-perfil-800.webp 800w, assets/retrato-perfil-hd.webp 1080w" sizes="(max-width:799px) 90vw, 40vw" width="800" height="800" alt="Dra. Ana Cláudia Reis, retrato em ambiente interno" loading="lazy">
+        <img src="assets/retrato-perfil-hd.webp" width="800" height="800" alt="Dra. Ana Cláudia Reis, retrato em ambiente interno" loading="lazy">
       </figure>
       <div>
         <h2 id="contato-titulo">Agende sua avaliação</h2>
