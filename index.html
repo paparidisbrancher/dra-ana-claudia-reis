@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://paparidisbrancher.github.io/dra-ana-claudia-reis/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Dra. Ana Cláudia Reis em retrato de estúdio">
+<meta property="og:image:alt" content="Dra. Ana Cláudia Reis sorrindo, de perfil">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
@@ -100,7 +100,7 @@ figure{margin:0}
 .f-45{width:100%;aspect-ratio:4/5;object-fit:cover}
 .f-54{width:100%;aspect-ratio:5/4;object-fit:cover}
 /* Anel de foco claro nas faixas escuras: currentColor sumia nos botões claros. */
-.topo,.hero,.contato,.rodape,#menu,.contato-mobile{--foco:var(--marfim)}
+.topo,.contato,.rodape,#menu,.contato-mobile{--foco:var(--marfim)}
 :focus-visible{outline:2px solid var(--foco);outline-offset:4px;border-radius:2px}
 [id]{scroll-margin-top:calc(var(--topo) + 16px)}
 .envolto{width:min(100% - 2*var(--gutter),var(--largura));margin-inline:auto}
@@ -111,7 +111,7 @@ figure{margin:0}
 /* Dado ainda não confirmado pela cliente. Etiqueta visível só com ?revisao. */
 .revisao .pend{text-decoration:underline dashed 1px;text-underline-offset:4px}
 .revisao .pend::after{content:"a confirmar";display:inline-block;margin-left:.5em;padding:0 .45em;font:500 .68rem/1.6 var(--sans);letter-spacing:.02em;background:#EBD9A6;color:var(--marrom);border-radius:3px;vertical-align:.15em}
-.revisao .contato .pend::after,.revisao .rodape .pend::after,.revisao .hero .pend::after{background:#5B4A2E;color:#F3E6C4}
+.revisao .contato .pend::after,.revisao .rodape .pend::after{background:#5B4A2E;color:#F3E6C4}
 
 .botao{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;font:500 1rem/1 var(--sans);text-decoration:none;transition:background-color .2s ease,transform 160ms var(--ease-out)}
 .botao:active{transform:scale(.97)}
@@ -152,24 +152,22 @@ figure{margin:0}
 }
 @media (min-width:1000px){.menu-fechar{display:none}}
 
-/* Hero */
-.hero{background:var(--noite);color:var(--marfim);overflow:hidden}
-.hero .envolto{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:clamp(24px,4vw,64px)}
-.hero__texto{align-self:center;padding-block:clamp(40px,6vw,88px)}
-.hero h1{font-size:clamp(2.6rem,6vw,5.2rem);letter-spacing:-.015em;max-width:11ch}
-.hero__sub{margin-top:24px;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--texto-claro);max-width:44ch}
+/* Hero: fundo areia, na mesma família da parede da foto de capa */
+.hero{background:var(--areia);color:var(--grafite);overflow:hidden}
+.hero .envolto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(32px,5vw,80px)}
+.hero__texto{padding-block:clamp(40px,6vw,88px)}
+.hero h1{font-size:clamp(2.6rem,5.6vw,5rem);letter-spacing:-.015em;max-width:11ch}
+.hero__sub{margin-top:24px;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--texto-suave);max-width:44ch}
 .hero__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:32px}
-.hero__dados{list-style:none;display:flex;flex-wrap:wrap;gap:12px 0;margin:40px 0 0;padding:0;font-size:.92rem;color:var(--texto-claro)}
-.hero__dados li{padding-right:20px;margin-right:20px;border-right:1px solid rgb(246 243 238 / .25)}
+.hero__dados{list-style:none;display:flex;flex-wrap:wrap;gap:12px 0;margin:40px 0 0;padding:0;font-size:.92rem;color:var(--texto-suave)}
+.hero__dados li{padding-right:20px;margin-right:20px;border-right:1px solid rgb(59 48 44 / .25)}
 .hero__dados li:last-child{border:0;margin:0;padding:0}
-.hero__foto{align-self:end}
-.hero__foto img{width:100%;max-height:min(84vh,780px);object-fit:cover;object-position:50% 12%;
-  --fade:linear-gradient(to right,transparent 0,#000 14%,#000 90%,transparent),linear-gradient(to bottom,transparent 0,#000 12%);
-  -webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
+.hero__foto{padding-block:clamp(32px,4vw,56px)}
+.hero__foto img{width:100%;aspect-ratio:1320/1197;object-fit:cover}
 @media (prefers-reduced-motion:no-preference){
   .hero h1,.hero__sub,.hero__acoes,.hero__dados{animation:surgir .9s var(--ease-out) both}
   .hero__sub{animation-delay:.1s}.hero__acoes{animation-delay:.2s}.hero__dados{animation-delay:.3s}
-  .hero__foto img{animation:revelar 1.4s ease-out both}
+  .hero__foto img{animation:revelar 1.2s ease-out both}
 }
 @keyframes surgir{from{opacity:0;transform:translateY(14px)}}
 @keyframes revelar{from{opacity:0}}
@@ -178,8 +176,7 @@ figure{margin:0}
   .hero__texto{padding-bottom:32px}
   .hero__dados{margin-top:32px;flex-direction:column;gap:6px}
   .hero__dados li{border:0;margin:0;padding:0}
-  .hero__foto{margin-inline:calc(-1*var(--gutter))}
-  .hero__foto img{aspect-ratio:4/5;max-height:none;object-position:50% 30%;-webkit-mask-image:none;mask-image:none}
+  .hero__foto{padding-block:0;margin-inline:calc(-1*var(--gutter))}
 }
 
 /* Seções */
@@ -324,7 +321,7 @@ figure{margin:0}
         <h1 id="titulo">Naturalidade e elegância em cada detalhe</h1>
         <p class="hero__sub">Um olhar individualizado para valorizar sua beleza e respeitar aquilo que faz você ser única.</p>
         <div class="hero__acoes">
-          <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
+          <a class="botao botao--escuro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
           <a class="link" href="#sobre">Conheça a profissional</a>
         </div>
         <ul class="hero__dados">
@@ -333,7 +330,7 @@ figure{margin:0}
         </ul>
       </div>
       <figure class="hero__foto">
-        <img src="assets/retrato-estudio-hd.webp" srcset="assets/retrato-estudio-640.webp 640w, assets/retrato-estudio-1000.webp 1000w, assets/retrato-estudio-hd.webp 1200w" sizes="(max-width:899px) 100vw, 40vw" width="1200" height="2132" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" fetchpriority="high">
+        <img src="assets/capa-hd.webp" srcset="assets/capa-700.webp 700w, assets/capa-hd.webp 1320w" sizes="(max-width:899px) 100vw, 46vw" width="1320" height="1197" alt="Dra. Ana Cláudia Reis de perfil, sorrindo" fetchpriority="high">
       </figure>
     </div>
   </section>
@@ -530,7 +527,7 @@ figure{margin:0}
   <section class="secao contato" id="contato" aria-labelledby="contato-titulo">
     <div class="envolto par">
       <figure>
-        <img class="f-45" src="assets/retrato-preto-hd.webp" srcset="assets/retrato-preto-700.webp 560w, assets/retrato-preto-hd.webp 958w" sizes="(max-width:799px) 90vw, 36vw" width="958" height="1197" alt="Dra. Ana Cláudia Reis de perfil, sorrindo" loading="lazy">
+        <img class="f-45" src="assets/estudio-hd.webp" srcset="assets/estudio-700.webp 700w, assets/estudio-hd.webp 1216w" sizes="(max-width:799px) 90vw, 36vw" width="1216" height="1520" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" loading="lazy">
       </figure>
       <div>
         <h2 id="contato-titulo">Agende sua avaliação</h2>

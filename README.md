@@ -36,14 +36,14 @@ Formatos: retratos em 4:5, fotos horizontais em 5:4, antes e depois em quadrado 
 
 | Arquivo | Origem | Uso |
 |---|---|---|
-| `retrato-estudio-*` | pasta do Instagram, `03addf2f82ffd7e8.jpg` | Hero |
+| `capa-*` | post DcOYTorkYad, foto 1 (escolhida pelo Erick em 01/11) | Capa (hero) |
+| `estudio-*` | pasta do Instagram, `03addf2f82ffd7e8.jpg` | Contato |
 | `retrato-colete-*` | post DTtcd9BkQ2I, foto 1 | Sobre |
 | `atendimento-*` | post DcOYTorkYad, última foto | Sobre (sobreposta) |
-| `consultorio-mesa-*` | post DT8xglIkWqG, foto 1 | Abordagem |
+| `consultorio-mesa-*` | post DT8xglIkWqG, foto 1 (texto do post apagado da parede) | Abordagem |
 | `retrato-celular-*` | post DRiaYAQEfh4, foto 1 | Como funciona |
-| `insta-*` | DNf3vhAxHol, DejsfQYEZD7, DadLDPrkbh5, foto de perfil | Faixa do Instagram |
-| `retrato-preto-*` | post DcOYTorkYad, foto 1 | Contato |
-| `og.jpg` | recorte do retrato de estúdio | Compartilhamento |
+| `insta-*` | DNf3vhAxHol (texto do post apagado do fundo), DejsfQYEZD7, DadLDPrkbh5, foto de perfil | Faixa do Instagram |
+| `og.jpg` | recorte da capa | Compartilhamento |
 | `resultado-1..6-*` | pasta do Instagram (`b1018054`, `edd23edf`, `77448bde`, `f5277607`, `c902e045`, `da61737a`) | Resultados |
 
 São capturas comprimidas do Instagram. Pedir os originais em alta resolução à cliente.
@@ -62,4 +62,4 @@ Para publicar de verdade:
 ## Tipografia e cores
 
 - Títulos: Bodoni Moda. Texto: Jost (geométrica, próxima da assinatura usada nas fotos). Ambas OFL, servidas de `fonts/`.
-- Paleta provisória: marfim #F6F3EE, areia #E8DFD5, taupe #B9A99C, marrom #3B302C, grafite #282523, e #271E1B no hero (o mesmo fundo do retrato de estúdio).
+- Paleta provisória: marfim #F6F3EE, areia #E8DFD5, taupe #B9A99C, marrom #3B302C, grafite #282523, e #271E1B no cabeçalho e no contato. O hero usa a areia, na família da parede da foto de capa.
