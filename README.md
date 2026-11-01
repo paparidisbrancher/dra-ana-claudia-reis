@@ -32,22 +32,22 @@ Autorização: segundo o Erick (31/10/2026), as fotos publicadas no Instagram da
 
 Tratamentos e frases vêm dos posts dela: a lista "botox, bioestimuladores de colágeno, protocolos para a pele, reestruturação, preenchimento com ácido hialurônico" (post DNf3vhAxHol), rinomodelação e preenchimento labial (DT8xglIkWqG), perfiloplastia (DcOYTorkYad) e as frases de precisão, planejamento e constância (DejsfQYEZD7, DTtcd9BkQ2I). As fotos dos posts foram extraídas em 01/11/2026 e recortadas para tirar os textos sobrepostos.
 
+Formatos: retratos em 4:5, fotos horizontais em 5:4, antes e depois em quadrado (o hero é a exceção). Cada foto tem `-hd` (resolução máxima que o Instagram fornece, até 1400 px) e `-700` (celular); nenhuma aparece maior que o arquivo em tela comum.
+
 | Arquivo | Origem | Uso |
 |---|---|---|
 | `retrato-estudio-*` | pasta do Instagram, `03addf2f82ffd7e8.jpg` | Hero |
 | `retrato-colete-*` | post DTtcd9BkQ2I, foto 1 | Sobre |
-| `atendimento-600` | post DcOYTorkYad, última foto | Sobre (sobreposta) |
+| `atendimento-*` | post DcOYTorkYad, última foto | Sobre (sobreposta) |
 | `consultorio-mesa-*` | post DT8xglIkWqG, foto 1 | Abordagem |
-| `retrato-azul-*` | post DadLDPrkbh5, última foto | Tratamentos |
 | `retrato-celular-*` | post DRiaYAQEfh4, foto 1 | Como funciona |
-| `retrato-branco-600`, `retrato-sorriso-600`, `retrato-perfil-480` | DNf3vhAxHol, DejsfQYEZD7, foto de perfil | Faixa do Instagram |
+| `insta-*` | DNf3vhAxHol, DejsfQYEZD7, DadLDPrkbh5, foto de perfil | Faixa do Instagram |
 | `retrato-preto-*` | post DcOYTorkYad, foto 1 | Contato |
 | `og.jpg` | recorte do retrato de estúdio | Compartilhamento |
 | `resultado-1..6-*` | pasta do Instagram (`b1018054`, `edd23edf`, `77448bde`, `f5277607`, `c902e045`, `da61737a`) | Resultados |
-| `resultado-7..9-*` | posts DejsfQYEZD7 e DT8xglIkWqG | Resultados |
 
 São capturas comprimidas do Instagram. Pedir os originais em alta resolução à cliente.
-Não usadas: fotos com texto no meio da imagem (placa do consultório, flores com o monograma, nariz antes e depois em cima e embaixo), a foto no barco e a selfie com adesivo.
+Não usadas: antes e depois que não cabem em quadrado sem cortar rosto (lábios e dois oblíquos dos posts), fotos com texto no meio da imagem (placa do consultório, flores com o monograma, nariz antes e depois em cima e embaixo), a foto no barco e a selfie com adesivo.
 
 ## SEO
 

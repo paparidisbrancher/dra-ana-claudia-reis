@@ -82,6 +82,7 @@
   --gutter:clamp(16px,5vw,64px);
   --largura:1240px;
   --topo:72px;
+  --secao:clamp(56px,7vw,96px);
   --ease-out:cubic-bezier(.23,1,.32,1);
   --ease-drawer:cubic-bezier(.32,.72,0,1);
   --foco:var(--grafite);
@@ -94,18 +95,23 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
 p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
+figure{margin:0}
+/* Formatos de foto do site: retrato 4:5 e horizontal 5:4 (o hero é a exceção). */
+.f-45{width:100%;aspect-ratio:4/5;object-fit:cover}
+.f-54{width:100%;aspect-ratio:5/4;object-fit:cover}
 /* Anel de foco claro nas faixas escuras: currentColor sumia nos botões claros. */
-.topo,.hero,.contato,.rodape,#menu{--foco:var(--marfim)}
+.topo,.hero,.contato,.rodape,#menu,.contato-mobile{--foco:var(--marfim)}
 :focus-visible{outline:2px solid var(--foco);outline-offset:4px;border-radius:2px}
 [id]{scroll-margin-top:calc(var(--topo) + 16px)}
 .envolto{width:min(100% - 2*var(--gutter),var(--largura));margin-inline:auto}
-.pular-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.so-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .pular{position:absolute;left:-999px;top:8px;z-index:20;background:var(--marfim);color:var(--grafite);padding:10px 16px}
 .pular:focus{left:8px}
 
 /* Dado ainda não confirmado pela cliente. Etiqueta visível só com ?revisao. */
 .revisao .pend{text-decoration:underline dashed 1px;text-underline-offset:4px}
 .revisao .pend::after{content:"a confirmar";display:inline-block;margin-left:.5em;padding:0 .45em;font:500 .68rem/1.6 var(--sans);letter-spacing:.02em;background:#EBD9A6;color:var(--marrom);border-radius:3px;vertical-align:.15em}
+.revisao .contato .pend::after,.revisao .rodape .pend::after,.revisao .hero .pend::after{background:#5B4A2E;color:#F3E6C4}
 
 .botao{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;font:500 1rem/1 var(--sans);text-decoration:none;transition:background-color .2s ease,transform 160ms var(--ease-out)}
 .botao:active{transform:scale(.97)}
@@ -149,15 +155,15 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 /* Hero */
 .hero{background:var(--noite);color:var(--marfim);overflow:hidden}
 .hero .envolto{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;gap:clamp(24px,4vw,64px)}
-.hero__texto{align-self:center;padding-block:clamp(48px,8vw,112px)}
-.hero h1{font-size:clamp(2.75rem,6.4vw,5.6rem);letter-spacing:-.015em;max-width:11ch}
-.hero__sub{margin-top:28px;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--texto-claro);max-width:44ch}
-.hero__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:36px}
-.hero__dados{list-style:none;display:flex;flex-wrap:wrap;gap:12px 0;margin:56px 0 0;padding:0;font-size:.92rem;color:var(--texto-claro)}
+.hero__texto{align-self:center;padding-block:clamp(40px,6vw,88px)}
+.hero h1{font-size:clamp(2.6rem,6vw,5.2rem);letter-spacing:-.015em;max-width:11ch}
+.hero__sub{margin-top:24px;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--texto-claro);max-width:44ch}
+.hero__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:32px}
+.hero__dados{list-style:none;display:flex;flex-wrap:wrap;gap:12px 0;margin:40px 0 0;padding:0;font-size:.92rem;color:var(--texto-claro)}
 .hero__dados li{padding-right:20px;margin-right:20px;border-right:1px solid rgb(246 243 238 / .25)}
 .hero__dados li:last-child{border:0;margin:0;padding:0}
-.hero__foto{margin:0;align-self:end}
-.hero__foto img{width:100%;max-height:min(86vh,840px);object-fit:cover;object-position:50% 12%;
+.hero__foto{align-self:end}
+.hero__foto img{width:100%;max-height:min(84vh,780px);object-fit:cover;object-position:50% 12%;
   --fade:linear-gradient(to right,transparent 0,#000 14%,#000 90%,transparent),linear-gradient(to bottom,transparent 0,#000 12%);
   -webkit-mask-image:var(--fade);mask-image:var(--fade);-webkit-mask-composite:source-in;mask-composite:intersect}
 @media (prefers-reduced-motion:no-preference){
@@ -169,140 +175,123 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 @keyframes revelar{from{opacity:0}}
 @media (max-width:899px){
   .hero .envolto{grid-template-columns:1fr;gap:0}
-  .hero__texto{padding-bottom:40px}
-  .hero__dados{margin-top:40px;flex-direction:column;gap:6px}
+  .hero__texto{padding-bottom:32px}
+  .hero__dados{margin-top:32px;flex-direction:column;gap:6px}
   .hero__dados li{border:0;margin:0;padding:0}
   .hero__foto{margin-inline:calc(-1*var(--gutter))}
   .hero__foto img{aspect-ratio:4/5;max-height:none;object-position:50% 30%;-webkit-mask-image:none;mask-image:none}
 }
 
 /* Seções */
-.secao{padding-block:clamp(64px,8vw,112px)}
+.secao{padding-block:var(--secao)}
 .secao--papel{background:var(--papel)}
-.secao h2{font-size:clamp(2.1rem,4.4vw,3.6rem);letter-spacing:-.01em}
-.intro{margin-top:20px;color:var(--texto-suave);font-size:1.1rem}
+.secao h2{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-.01em}
+.intro{margin-top:16px;color:var(--texto-suave);font-size:1.1rem}
+/* Duas colunas padrão: foto (5) e texto (7). */
+.par{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,88px);align-items:center}
+.par--inverso{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+@media (max-width:799px){.par,.par--inverso{grid-template-columns:1fr}}
 
-/* Sobre: retrato grande com a foto de atendimento sobreposta */
-.sobre .envolto{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(48px,7vw,112px);align-items:center}
-.sobre__fotos{position:relative;margin:0 0 clamp(56px,7vw,96px)}
-.sobre__fotos img:first-child{width:100%;aspect-ratio:1000/867;object-fit:cover}
-.sobre__inset{position:absolute;right:clamp(-48px,-3vw,-16px);bottom:clamp(-96px,-7vw,-56px);width:44%;border:8px solid var(--marfim);aspect-ratio:1000/773;object-fit:cover}
-.sobre h2{margin-bottom:28px}
-.fatos{margin:36px 0 0;padding:0;border-top:1px solid var(--taupe)}
-.fatos div{display:grid;grid-template-columns:8.5rem 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--taupe)}
+/* Sobre: retrato com a foto de atendimento sobreposta */
+.sobre__fotos{position:relative;margin-bottom:48px;margin-right:48px}
+.sobre__inset{position:absolute;right:-48px;bottom:-48px;width:52%;border:6px solid var(--marfim)}
+.sobre h2{margin-bottom:24px}
+.fatos{margin:28px 0 0;padding:0;border-top:1px solid var(--taupe)}
+.fatos div{display:grid;grid-template-columns:8.5rem 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--taupe)}
 .fatos dt{font-size:.9rem;color:var(--texto-suave)}
 .fatos dd{margin:0;font-weight:500}
-@media (max-width:899px){
-  .sobre .envolto{grid-template-columns:1fr}
-  .sobre__inset{right:-8px;bottom:-56px;width:48%}
-}
+@media (max-width:799px){.sobre__fotos{margin-right:24px;max-width:460px}.sobre__inset{right:-24px;bottom:-40px;width:50%}}
 
 /* Frase */
-.frase{margin:0;background:var(--areia);padding-block:clamp(56px,7vw,104px)}
+.frase{background:var(--areia);padding-block:clamp(48px,6vw,80px)}
 .frase blockquote{margin:0}
-.frase p{font:400 clamp(2.2rem,5.6vw,4.8rem)/1.08 var(--serif);letter-spacing:-.015em;max-width:18ch;margin:0}
+.frase p{font:400 clamp(2rem,4.6vw,4rem)/1.08 var(--serif);letter-spacing:-.015em;max-width:18ch;margin:0}
 .frase p+p{margin-left:auto;text-align:right;margin-top:.15em}
-.frase figcaption{margin-top:40px;font-size:.95rem;color:var(--texto-suave)}
+.frase figcaption{margin-top:24px;font-size:.95rem;color:var(--texto-suave)}
 
 /* Abordagem */
-.abordagem .envolto{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,7vw,112px);align-items:start}
-.pilares{margin-top:40px;display:grid;gap:36px}
-.pilares h3{font-size:1.55rem;margin-bottom:10px}
-.pilares p{color:var(--texto-suave);margin:0}
-.abordagem__foto{margin:0;position:sticky;top:calc(var(--topo) + 32px)}
-.abordagem__foto img{width:100%;aspect-ratio:1000/838;object-fit:cover}
-.abordagem__foto figcaption{margin-top:12px;font-size:.9rem;color:var(--texto-suave)}
-@media (max-width:899px){.abordagem .envolto{grid-template-columns:1fr}.abordagem__foto{position:static}}
+.pilares{margin-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.pilares h3{font-size:1.45rem;margin-bottom:8px}
+.pilares p{color:var(--texto-suave);margin:0;font-size:1rem}
+.abordagem figcaption{margin-top:10px;font-size:.9rem;color:var(--texto-suave)}
+@media (max-width:1099px){.pilares{grid-template-columns:1fr;gap:22px}}
 
 /* Tratamentos */
-.trat .envolto{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(48px,7vw,112px);align-items:start}
-.trat__foto{margin:0;position:sticky;top:calc(var(--topo) + 32px)}
-.trat__foto img{width:100%;aspect-ratio:602/1152;object-fit:cover;max-height:calc(100vh - var(--topo) - 64px)}
-.trat__grupo{margin-top:44px}
-.trat__grupo h3{font:500 .95rem/1.4 var(--sans);letter-spacing:.04em;color:var(--texto-suave);padding-bottom:14px;border-bottom:1px solid var(--marrom)}
+.trat__grupos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(32px,5vw,72px);margin-top:36px}
+.trat__grupo h3{font:500 .95rem/1.4 var(--sans);letter-spacing:.04em;color:var(--texto-suave);padding-bottom:12px;border-bottom:1px solid var(--marrom)}
 .trat__grupo ul{list-style:none;margin:0;padding:0}
-.trat__grupo li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:8px 40px;padding:26px 0;border-bottom:1px solid var(--taupe)}
-.trat__grupo h4{font-size:clamp(1.45rem,2.2vw,1.85rem)}
-.trat__grupo p{margin:0;color:var(--texto-suave)}
-.trat__cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:48px}
+.trat__grupo li{padding:20px 0;border-bottom:1px solid var(--taupe)}
+.trat__grupo h4{font-size:clamp(1.35rem,2vw,1.65rem);margin-bottom:6px}
+.trat__grupo p{margin:0;color:var(--texto-suave);font-size:1rem}
+.trat__cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:32px}
 .trat__cta p{margin:0;color:var(--texto-suave)}
-@media (max-width:899px){
-  .trat .envolto{grid-template-columns:1fr}
-  .trat__foto{position:static;max-width:420px}
-  .trat__foto img{aspect-ratio:4/5;max-height:none;object-position:50% 20%}
-}
-@media (max-width:599px){.trat__grupo li{grid-template-columns:1fr}}
+@media (max-width:799px){.trat__grupos{grid-template-columns:1fr;gap:32px}}
 
-/* Resultados */
-.galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:48px}
-.resultado{display:flex;flex-direction:column;text-decoration:none;min-width:0}
-.resultado img{width:100%;aspect-ratio:4/5;object-fit:contain;background:var(--areia)}
-.resultado>span{padding:12px 0;font-size:.9rem;color:var(--texto-suave);border-bottom:1px solid var(--taupe)}
-@media (hover:hover){.resultado:hover>span{color:var(--grafite);text-decoration:underline;text-underline-offset:4px}}
-@media (max-width:699px){.galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}.resultado>span{font-size:.8rem}}
+/* Resultados: quadrados do mesmo tamanho; cada um abre ampliado */
+.galeria{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:32px 0 0;padding:0}
+.galeria a{display:block}
+.galeria img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--areia);transition:opacity .2s ease}
+@media (hover:hover){.galeria a:hover img{opacity:.9}}
+.galeria__ajuda{margin:12px 0 0;font-size:.92rem;color:var(--texto-suave)}
+@media (max-width:699px){.galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
 
 /* Como funciona */
-.passos{list-style:none;counter-reset:passo;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
-.passos li{counter-increment:passo;border-top:1px solid var(--marrom);padding-top:20px}
-.passos li::before{content:counter(passo);display:block;font:400 3rem/1 var(--serif);margin-bottom:20px}
-.passos h3{font:500 1.15rem/1.3 var(--sans);margin-bottom:10px}
-.passos p{color:var(--texto-suave);font-size:1rem}
-.citacao{margin:clamp(64px,8vw,112px) 0 0;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:center}
-.citacao img{width:100%;aspect-ratio:1000/773;object-fit:cover}
+.passos{list-style:none;counter-reset:passo;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.passos li{counter-increment:passo;border-top:1px solid var(--marrom);padding-top:16px}
+.passos li::before{content:counter(passo);display:block;font:400 2.6rem/1 var(--serif);margin-bottom:14px}
+.passos h3{font:500 1.15rem/1.3 var(--sans);margin-bottom:8px}
+.passos p{color:var(--texto-suave);font-size:1rem;margin:0}
+.citacao{margin-top:clamp(48px,6vw,80px)}
 .citacao blockquote{margin:0;font:400 clamp(1.6rem,2.8vw,2.4rem)/1.25 var(--serif);max-width:26ch}
-.citacao figcaption{margin-top:20px;font-size:.95rem;color:var(--texto-suave)}
+.citacao figcaption{margin-top:16px;font-size:.95rem;color:var(--texto-suave)}
 @media (max-width:999px){.passos{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:699px){.passos{grid-template-columns:1fr}.citacao{grid-template-columns:1fr}}
+@media (max-width:599px){.passos{grid-template-columns:1fr;gap:24px}}
 
 /* Dúvidas */
-.duvidas .envolto{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
+.duvidas .envolto{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(28px,5vw,80px)}
 .duvidas details{border-bottom:1px solid var(--taupe)}
 .duvidas details:first-child{border-top:1px solid var(--taupe)}
-.duvidas summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;padding:24px 0;font:400 1.3rem/1.35 var(--serif)}
+.duvidas summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;padding:20px 0;font:400 1.25rem/1.35 var(--serif)}
 .duvidas summary::-webkit-details-marker{display:none}
 .duvidas summary::after{content:"+";font:300 1.6rem/1 var(--sans);transition:transform .2s var(--ease-out)}
 .duvidas details[open] summary::after{transform:rotate(45deg)}
-.duvidas details p{color:var(--texto-suave);padding-bottom:20px}
+.duvidas details p{color:var(--texto-suave);padding-bottom:18px;margin:0}
 @media (max-width:799px){.duvidas .envolto{grid-template-columns:1fr}}
 
 /* Instagram */
-.insta{background:var(--areia);padding-block:clamp(56px,7vw,96px)}
-.insta__cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px}
-.insta__cab h2{font-size:clamp(1.9rem,3.6vw,3rem)}
-.insta__grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px;text-decoration:none}
-.insta__grade img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:opacity .2s ease}
+.insta{background:var(--areia);padding-block:clamp(48px,6vw,80px)}
+.insta__cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 40px}
+.insta__cab h2{font-size:clamp(1.8rem,3.2vw,2.6rem)}
+.insta__grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px;text-decoration:none}
+.insta__grade img{transition:opacity .2s ease}
 @media (hover:hover){.insta__grade:hover img{opacity:.88}}
-@media (max-width:699px){.insta__grade{gap:6px}}
+@media (max-width:699px){.insta__grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
 
 /* Contato */
 .contato{background:var(--noite);color:var(--marfim)}
-.contato .envolto{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,112px);align-items:center}
-.contato__foto{margin:0}
-.contato__foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
 .contato .intro{color:var(--texto-claro)}
-.contato__acoes{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-top:36px}
-.locais{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin-top:56px;padding-top:32px;border-top:1px solid rgb(246 243 238 / .2)}
-.locais h3{font-size:1.4rem;margin-bottom:10px}
+.contato__acoes{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-top:28px}
+.locais{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:36px;padding-top:24px;border-top:1px solid rgb(246 243 238 / .2)}
+.locais h3{font-size:1.35rem;margin-bottom:6px}
 .locais p{color:var(--texto-claro);font-size:.98rem;margin:0}
-.revisao .contato .pend::after,.revisao .rodape .pend::after{background:#5B4A2E;color:#F3E6C4}
-@media (max-width:799px){.contato .envolto{grid-template-columns:1fr}.contato__foto{order:2}.locais{grid-template-columns:1fr}}
+@media (max-width:799px){.contato .par figure{order:2;max-width:460px}.locais{grid-template-columns:1fr}}
 
 /* Barra fixa de agendamento no celular */
 .contato-mobile{display:none}
 @media (max-width:699px){
-  .contato-mobile{display:flex;position:fixed;inset:auto 0 0 0;z-index:6;align-items:center;justify-content:center;min-height:56px;padding:0 24px env(safe-area-inset-bottom);background:var(--marrom);color:var(--marfim);font-weight:500;text-decoration:none;border-top:1px solid rgb(246 243 238 / .2);--foco:var(--marfim)}
+  .contato-mobile{display:flex;position:fixed;inset:auto 0 0 0;z-index:6;align-items:center;justify-content:center;min-height:56px;padding:0 24px env(safe-area-inset-bottom);background:var(--marrom);color:var(--marfim);font-weight:500;text-decoration:none;border-top:1px solid rgb(246 243 238 / .2)}
   body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
 }
 
 /* Rodapé */
-.rodape{background:var(--grafite);color:var(--texto-claro);padding-block:64px 40px;font-size:.95rem}
-.rodape__topo{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding-bottom:40px;border-bottom:1px solid rgb(246 243 238 / .12)}
+.rodape{background:var(--grafite);color:var(--texto-claro);padding-block:48px 32px;font-size:.95rem}
+.rodape__topo{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;padding-bottom:32px;border-bottom:1px solid rgb(246 243 238 / .12)}
 .rodape strong{display:block;font:400 1.4rem var(--serif);color:var(--marfim);margin-bottom:8px}
 .rodape p{margin:0}
 .rodape nav{display:flex;flex-wrap:wrap;gap:12px 28px;align-content:start}
 .rodape nav a{text-decoration:none}
 @media (hover:hover){.rodape nav a:hover{text-decoration:underline;text-underline-offset:5px}}
-.rodape__base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-top:24px;font-size:.85rem}
+.rodape__base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-top:20px;font-size:.85rem}
 </style>
 </head>
 <body>
@@ -344,16 +333,16 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         </ul>
       </div>
       <figure class="hero__foto">
-        <img src="assets/retrato-estudio-1000.webp" srcset="assets/retrato-estudio-640.webp 640w, assets/retrato-estudio-1000.webp 1000w, assets/retrato-estudio-hd.webp 1200w" sizes="(max-width:899px) 100vw, 40vw" width="1000" height="1776" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" fetchpriority="high">
+        <img src="assets/retrato-estudio-hd.webp" srcset="assets/retrato-estudio-640.webp 640w, assets/retrato-estudio-1000.webp 1000w, assets/retrato-estudio-hd.webp 1200w" sizes="(max-width:899px) 100vw, 40vw" width="1200" height="2132" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" fetchpriority="high">
       </figure>
     </div>
   </section>
 
   <section class="secao sobre" id="sobre" aria-labelledby="sobre-titulo">
-    <div class="envolto">
+    <div class="envolto par">
       <figure class="sobre__fotos">
-        <img src="assets/retrato-colete-1000.webp" srcset="assets/retrato-colete-600.webp 600w, assets/retrato-colete-1000.webp 1000w" sizes="(max-width:899px) 92vw, 55vw" width="1000" height="867" alt="Dra. Ana Cláudia Reis em retrato de estúdio, com colete claro" loading="lazy">
-        <img class="sobre__inset" src="assets/atendimento-600.webp" width="600" height="464" alt="Dra. Ana Cláudia Reis de máscara durante um atendimento" loading="lazy">
+        <img class="f-45" src="assets/retrato-colete-hd.webp" srcset="assets/retrato-colete-700.webp 560w, assets/retrato-colete-hd.webp 915w" sizes="(max-width:799px) 90vw, 36vw" width="915" height="1144" alt="Dra. Ana Cláudia Reis em retrato de estúdio, com colete claro" loading="lazy">
+        <img class="sobre__inset f-54" src="assets/atendimento-700.webp" srcset="assets/atendimento-700.webp 700w, assets/atendimento-hd.webp 1276w" sizes="(max-width:799px) 46vw, 20vw" width="700" height="560" alt="Dra. Ana Cláudia Reis de máscara durante um atendimento" loading="lazy">
       </figure>
       <div>
         <h2 id="sobre-titulo">O cuidado começa pela escuta</h2>
@@ -380,7 +369,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
   </figure>
 
   <section class="secao abordagem" aria-labelledby="abordagem-titulo">
-    <div class="envolto">
+    <div class="envolto par par--inverso">
       <div>
         <h2 id="abordagem-titulo">Precisão, planejamento e constância</h2>
         <p class="intro">Cada rosto tem proporções, expressões e uma história próprias. O atendimento parte disso, e não de uma fórmula pronta.</p>
@@ -391,30 +380,26 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
           </div>
           <div>
             <h3>Planejamento</h3>
-            <p>Na harmonização, o próprio nome já diz: fazer o rosto entrar em harmonia, com estratégia e planejamento. Você conhece as opções e os limites de cada uma, e decide junto com a profissional.</p>
+            <p>Fazer o rosto entrar em harmonia, com estratégia. Você conhece as opções e os limites de cada uma, e decide junto.</p>
           </div>
           <div>
             <h3>Constância</h3>
-            <p>Cuidar não é urgência, é constância. Sem transformação rápida: um plano que faz sentido para a sua rotina e a sua fase de vida.</p>
+            <p>Cuidar não é urgência, é constância: um plano que faz sentido para a sua rotina e fase de vida.</p>
           </div>
         </div>
       </div>
-      <figure class="abordagem__foto">
-        <img src="assets/consultorio-mesa-1000.webp" srcset="assets/consultorio-mesa-600.webp 600w, assets/consultorio-mesa-1000.webp 1000w" sizes="(max-width:899px) 92vw, 40vw" width="1000" height="838" alt="Dra. Ana Cláudia Reis sentada à mesa do consultório, com flores ao lado" loading="lazy">
+      <figure>
+        <img class="f-54" src="assets/consultorio-mesa-hd.webp" srcset="assets/consultorio-mesa-700.webp 700w, assets/consultorio-mesa-hd.webp 1080w" sizes="(max-width:799px) 92vw, 36vw" width="1080" height="864" alt="Dra. Ana Cláudia Reis sentada à mesa do consultório, com flores ao lado" loading="lazy">
         <figcaption>No consultório</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="secao secao--papel trat" id="tratamentos" aria-labelledby="tratamentos-titulo">
+  <section class="secao secao--papel" id="tratamentos" aria-labelledby="tratamentos-titulo">
     <div class="envolto">
-      <figure class="trat__foto">
-        <img src="assets/retrato-azul-1000.webp" srcset="assets/retrato-azul-600.webp 600w, assets/retrato-azul-1000.webp 602w" sizes="(max-width:899px) 92vw, 30vw" width="602" height="1152" alt="Dra. Ana Cláudia Reis com blazer azul-marinho" loading="lazy">
-      </figure>
-      <div>
-        <h2 id="tratamentos-titulo">Tratamentos</h2>
-        <p class="intro">A harmonização facial reúne procedimentos planejados em conjunto, para equilibrar as proporções do rosto respeitando seus traços. A indicação de cada um depende da avaliação presencial.</p>
-
+      <h2 id="tratamentos-titulo">Tratamentos</h2>
+      <p class="intro">A harmonização facial reúne procedimentos planejados em conjunto, para equilibrar as proporções do rosto respeitando seus traços. A indicação de cada um depende da avaliação presencial.</p>
+      <div class="trat__grupos">
         <div class="trat__grupo">
           <h3>Lábios e perfil</h3>
           <ul>
@@ -423,7 +408,6 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
             <li><h4>Perfiloplastia</h4><p>O perfil tem três pontos principais: nariz, lábios e mento. Quando existe equilíbrio entre eles, o perfil entra em harmonia. Sem cortes e sem cirurgia.</p></li>
           </ul>
         </div>
-
         <div class="trat__grupo">
           <h3>Rosto e pele</h3>
           <ul>
@@ -433,11 +417,10 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
             <li><h4>Protocolos para a pele</h4><p>Cuidados para textura e viço da pele, combinados com o restante do plano de tratamento.</p></li>
           </ul>
         </div>
-
-        <div class="trat__cta">
-          <a class="botao botao--escuro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
-          <p>A avaliação define o que faz sentido para você.</p>
-        </div>
+      </div>
+      <div class="trat__cta">
+        <a class="botao botao--escuro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
+        <p>A avaliação define o que faz sentido para você.</p>
       </div>
     </div>
   </section>
@@ -446,17 +429,15 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
     <div class="envolto">
       <h2 id="resultados-titulo">Resultados</h2>
       <p class="intro">Pacientes atendidas pela Dra. Ana Cláudia Reis, com imagens publicadas com autorização. Cada rosto responde de um jeito: o resultado depende da avaliação e do plano individual.</p>
-      <div class="galeria">
-        <a class="resultado" href="assets/resultado-1-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-1-900.webp" srcset="assets/resultado-1-560.webp 560w, assets/resultado-1-900.webp 900w, assets/resultado-1-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1059" alt="Antes e depois de paciente, vista frontal" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-        <a class="resultado" href="assets/resultado-7-1000.webp" target="_blank" rel="noopener"><img src="assets/resultado-7-1000.webp" srcset="assets/resultado-7-600.webp 600w, assets/resultado-7-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="834" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-        <a class="resultado" href="assets/resultado-3-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-3-900.webp" srcset="assets/resultado-3-560.webp 560w, assets/resultado-3-900.webp 900w, assets/resultado-3-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1106" alt="Paciente em 2023 e em 2026, vista frontal" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-        <a class="resultado" href="assets/resultado-9-1000.webp" target="_blank" rel="noopener"><img src="assets/resultado-9-1000.webp" srcset="assets/resultado-9-600.webp 600w, assets/resultado-9-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="649" alt="Lábios de paciente antes e depois do preenchimento labial" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-        <a class="resultado" href="assets/resultado-2-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-2-900.webp" srcset="assets/resultado-2-560.webp 560w, assets/resultado-2-900.webp 900w, assets/resultado-2-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1099" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-        <a class="resultado" href="assets/resultado-8-1000.webp" target="_blank" rel="noopener"><img src="assets/resultado-8-1000.webp" srcset="assets/resultado-8-600.webp 600w, assets/resultado-8-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="893" alt="Antes e depois de paciente, perfil" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-        <a class="resultado" href="assets/resultado-4-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-4-900.webp" srcset="assets/resultado-4-560.webp 560w, assets/resultado-4-900.webp 900w, assets/resultado-4-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1200" alt="Antes e depois de paciente, perfil" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-        <a class="resultado" href="assets/resultado-5-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-5-900.webp" srcset="assets/resultado-5-560.webp 560w, assets/resultado-5-900.webp 900w, assets/resultado-5-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="886" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-        <a class="resultado" href="assets/resultado-6-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-6-900.webp" srcset="assets/resultado-6-560.webp 560w, assets/resultado-6-900.webp 900w, assets/resultado-6-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1095" alt="Antes e depois do perfil do nariz de paciente, vista lateral" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
-      </div>
+      <ul class="galeria">
+        <li><a href="assets/resultado-1-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-1-700.webp" srcset="assets/resultado-1-700.webp 700w, assets/resultado-1-hd.webp 1400w" sizes="(max-width:699px) 46vw, 30vw" width="700" height="700" alt="Antes e depois de paciente, vista frontal" loading="lazy"><span class="so-leitor"> (ampliar em nova aba)</span></a></li>
+        <li><a href="assets/resultado-3-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-3-700.webp" srcset="assets/resultado-3-700.webp 700w, assets/resultado-3-hd.webp 1400w" sizes="(max-width:699px) 46vw, 30vw" width="700" height="700" alt="Paciente em 2023 e em 2026, vista frontal" loading="lazy"><span class="so-leitor"> (ampliar em nova aba)</span></a></li>
+        <li><a href="assets/resultado-2-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-2-700.webp" srcset="assets/resultado-2-700.webp 700w, assets/resultado-2-hd.webp 1320w" sizes="(max-width:699px) 46vw, 30vw" width="700" height="700" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span class="so-leitor"> (ampliar em nova aba)</span></a></li>
+        <li><a href="assets/resultado-4-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-4-700.webp" srcset="assets/resultado-4-700.webp 700w, assets/resultado-4-hd.webp 1320w" sizes="(max-width:699px) 46vw, 30vw" width="700" height="700" alt="Antes e depois de paciente, perfil" loading="lazy"><span class="so-leitor"> (ampliar em nova aba)</span></a></li>
+        <li><a href="assets/resultado-5-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-5-700.webp" srcset="assets/resultado-5-700.webp 700w, assets/resultado-5-hd.webp 1300w" sizes="(max-width:699px) 46vw, 30vw" width="700" height="700" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span class="so-leitor"> (ampliar em nova aba)</span></a></li>
+        <li><a href="assets/resultado-6-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-6-700.webp" srcset="assets/resultado-6-700.webp 700w, assets/resultado-6-hd.webp 1328w" sizes="(max-width:699px) 46vw, 30vw" width="700" height="700" alt="Antes e depois do perfil de paciente, vista lateral" loading="lazy"><span class="so-leitor"> (ampliar em nova aba)</span></a></li>
+      </ul>
+      <p class="galeria__ajuda">Toque numa foto para ver em tamanho maior.</p>
     </div>
   </section>
 
@@ -482,8 +463,8 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
           <p>Você recebe as orientações de cuidado e sabe o que esperar nos dias seguintes a qualquer procedimento.</p>
         </li>
       </ol>
-      <figure class="citacao">
-        <img src="assets/retrato-celular-1000.webp" srcset="assets/retrato-celular-600.webp 600w, assets/retrato-celular-1000.webp 1000w" sizes="(max-width:699px) 92vw, 34vw" width="1000" height="880" alt="Dra. Ana Cláudia Reis lendo mensagens no celular" loading="lazy">
+      <figure class="citacao par">
+        <img class="f-54" src="assets/retrato-celular-hd.webp" srcset="assets/retrato-celular-700.webp 700w, assets/retrato-celular-hd.webp 1290w" sizes="(max-width:799px) 92vw, 36vw" width="1290" height="1032" alt="Dra. Ana Cláudia Reis lendo mensagens no celular" loading="lazy">
         <div>
           <blockquote>Um bom resultado não chama atenção para o procedimento. Ele traz mais harmonia, sem que ninguém perceba o que foi feito.</blockquote>
           <figcaption>Dra. Ana Cláudia Reis</figcaption>
@@ -538,17 +519,18 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         <a class="link" href="https://www.instagram.com/draanaclaudiareis_/">@draanaclaudiareis_</a>
       </div>
       <a class="insta__grade" href="https://www.instagram.com/draanaclaudiareis_/" aria-label="Ver o perfil @draanaclaudiareis_ no Instagram">
-        <img src="assets/retrato-branco-600.webp" width="600" height="479" alt="" loading="lazy">
-        <img src="assets/retrato-sorriso-600.webp" width="600" height="429" alt="" loading="lazy">
-        <img src="assets/retrato-perfil-480.webp" width="480" height="480" alt="" loading="lazy">
+        <img class="f-45" src="assets/insta-branco-hd.webp" width="653" height="816" alt="" loading="lazy">
+        <img class="f-45" src="assets/insta-sorriso-hd.webp" width="538" height="673" alt="" loading="lazy">
+        <img class="f-45" src="assets/insta-azul-hd.webp" width="601" height="751" alt="" loading="lazy">
+        <img class="f-45" src="assets/insta-perfil-hd.webp" width="864" height="1080" alt="" loading="lazy">
       </a>
     </div>
   </section>
 
   <section class="secao contato" id="contato" aria-labelledby="contato-titulo">
-    <div class="envolto">
-      <figure class="contato__foto">
-        <img src="assets/retrato-preto-1000.webp" srcset="assets/retrato-preto-600.webp 600w, assets/retrato-preto-1000.webp 1000w" sizes="(max-width:799px) 92vw, 40vw" width="1000" height="906" alt="Dra. Ana Cláudia Reis de perfil, sorrindo" loading="lazy">
+    <div class="envolto par">
+      <figure>
+        <img class="f-45" src="assets/retrato-preto-hd.webp" srcset="assets/retrato-preto-700.webp 560w, assets/retrato-preto-hd.webp 958w" sizes="(max-width:799px) 90vw, 36vw" width="958" height="1197" alt="Dra. Ana Cláudia Reis de perfil, sorrindo" loading="lazy">
       </figure>
       <div>
         <h2 id="contato-titulo">Agende sua avaliação</h2>
