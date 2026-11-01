@@ -9,16 +9,17 @@ Enquanto estiver em aprovação: `noindex` no `<head>` e `robots.txt` bloqueando
 
 ## Pendências com a cliente
 
-Tudo o que aparece no site com a etiqueta **"a confirmar"** (classe `pend` no HTML). Ao confirmar, troque o texto e remova a classe.
+Dados não confirmados têm a classe `pend` no HTML. A etiqueta **"a confirmar"** fica escondida para a demonstração parecer pronta; para vê-las, abra o site com `?revisao` no fim do endereço. Ao confirmar, troque o texto e remova a classe.
 
 - [ ] CRO-MG 62571 (aparece nas fotos do Instagram; conferir no CRO-MG)
-- [ ] Formação, cursos e trajetória (seção Sobre)
-- [ ] Rinomodelação: ainda oferece? (os demais tratamentos foram confirmados em 22/10)
+- [ ] Formação, cursos e trajetória (a seção Sobre só diz "cirurgiã-dentista")
+- [ ] Descrições dos tratamentos (baseadas nos posts dela; revisar com ela)
 - [ ] Título: o selo das fotos diz "Odontologia estética e endodontia". O site usa só "cirurgiã-dentista" até a especialidade registrada ser confirmada
 - [ ] Endereços e horários em Carmo da Cachoeira e Varginha
 - [ ] Número de WhatsApp (o link pronto, com a mensagem neutra, está num comentário na seção Contato). Hoje o botão principal abre o direct do Instagram
 - [ ] Etapas reais do atendimento (Como funciona)
 - [ ] Respostas das dúvidas frequentes revisadas por ela
+- [ ] Depoimentos: ela publica prints de mensagens de pacientes (post DRiaYAQEfh4). Ficaram fora até conferir as regras do CFO para depoimentos
 - [ ] Logo oficial em SVG ou PNG transparente (hoje o nome está em texto, como wordmark provisório)
 - [ ] Paleta oficial (as cores atuais são provisórias, ver `:root` no `index.html`)
 - [ ] Domínio final (para `og:image` com URL completa, `canonical` e sitemap)
@@ -29,16 +30,24 @@ Fica de fora até haver material revisado por ela: **conteúdos educativos**.
 
 Autorização: segundo o Erick (31/10/2026), as fotos publicadas no Instagram da doutora já têm autorização das pacientes. Os antes e depois mantêm o nome e o CRO gravados na própria foto, como no Instagram.
 
-| Arquivo | Origem (pasta do Instagram) | Uso |
+Tratamentos e frases vêm dos posts dela: a lista "botox, bioestimuladores de colágeno, protocolos para a pele, reestruturação, preenchimento com ácido hialurônico" (post DNf3vhAxHol), rinomodelação e preenchimento labial (DT8xglIkWqG), perfiloplastia (DcOYTorkYad) e as frases de precisão, planejamento e constância (DejsfQYEZD7, DTtcd9BkQ2I). As fotos dos posts foram extraídas em 01/11/2026 e recortadas para tirar os textos sobrepostos.
+
+| Arquivo | Origem | Uso |
 |---|---|---|
-| `retrato-estudio-*.webp` | `03addf2f82ffd7e8.jpg` | Hero |
-| `retrato-sofa-*.webp` | `a7d6e708c5347702.jpg` (recortada sem o texto "Posso ser sincera?") | Sobre |
-| `retrato-perfil-*.webp` | `foto-perfil-instagram.jpg` | Contato |
+| `retrato-estudio-*` | pasta do Instagram, `03addf2f82ffd7e8.jpg` | Hero |
+| `retrato-colete-*` | post DTtcd9BkQ2I, foto 1 | Sobre |
+| `atendimento-600` | post DcOYTorkYad, última foto | Sobre (sobreposta) |
+| `consultorio-mesa-*` | post DT8xglIkWqG, foto 1 | Abordagem |
+| `retrato-azul-*` | post DadLDPrkbh5, última foto | Tratamentos |
+| `retrato-celular-*` | post DRiaYAQEfh4, foto 1 | Como funciona |
+| `retrato-branco-600`, `retrato-sorriso-600`, `retrato-perfil-480` | DNf3vhAxHol, DejsfQYEZD7, foto de perfil | Faixa do Instagram |
+| `retrato-preto-*` | post DcOYTorkYad, foto 1 | Contato |
 | `og.jpg` | recorte do retrato de estúdio | Compartilhamento |
-| `resultado-1..6-*.webp` | `b1018054`, `edd23edf`, `77448bde`, `f5277607`, `c902e045` (recortada sem a legenda), `da61737a` | Resultados |
+| `resultado-1..6-*` | pasta do Instagram (`b1018054`, `edd23edf`, `77448bde`, `f5277607`, `c902e045`, `da61737a`) | Resultados |
+| `resultado-7..9-*` | posts DejsfQYEZD7 e DT8xglIkWqG | Resultados |
 
 São capturas comprimidas do Instagram. Pedir os originais em alta resolução à cliente.
-Não usadas: close-ups de lábios, a foto no barco e a selfie com adesivo.
+Não usadas: fotos com texto no meio da imagem (placa do consultório, flores com o monograma, nariz antes e depois em cima e embaixo), a foto no barco e a selfie com adesivo.
 
 ## SEO
 
