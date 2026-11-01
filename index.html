@@ -89,8 +89,6 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-/* Grão de papel bem sutil (camada fixa, não rola junto). */
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.035;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
 body{margin:0;background:var(--marfim);color:var(--grafite);font:400 1.0625rem/1.65 var(--sans);text-rendering:optimizeLegibility}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
@@ -101,6 +99,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 :focus-visible{outline:2px solid var(--foco);outline-offset:4px;border-radius:2px}
 [id]{scroll-margin-top:calc(var(--topo) + 16px)}
 .envolto{width:min(100% - 2*var(--gutter),var(--largura));margin-inline:auto}
+.pular-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .pular{position:absolute;left:-999px;top:8px;z-index:20;background:var(--marfim);color:var(--grafite);padding:10px 16px}
 .pular:focus{left:8px}
 
@@ -178,7 +177,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 }
 
 /* Seções */
-.secao{padding-block:clamp(80px,11vw,152px)}
+.secao{padding-block:clamp(64px,8vw,112px)}
 .secao--papel{background:var(--papel)}
 .secao h2{font-size:clamp(2.1rem,4.4vw,3.6rem);letter-spacing:-.01em}
 .intro{margin-top:20px;color:var(--texto-suave);font-size:1.1rem}
@@ -199,7 +198,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 }
 
 /* Frase */
-.frase{margin:0;background:var(--areia);padding-block:clamp(80px,10vw,140px)}
+.frase{margin:0;background:var(--areia);padding-block:clamp(56px,7vw,104px)}
 .frase blockquote{margin:0}
 .frase p{font:400 clamp(2.2rem,5.6vw,4.8rem)/1.08 var(--serif);letter-spacing:-.015em;max-width:18ch;margin:0}
 .frase p+p{margin-left:auto;text-align:right;margin-top:.15em}
@@ -207,7 +206,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 
 /* Abordagem */
 .abordagem .envolto{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,7vw,112px);align-items:start}
-.pilares{margin-top:48px;display:grid;gap:36px}
+.pilares{margin-top:40px;display:grid;gap:36px}
 .pilares h3{font-size:1.55rem;margin-bottom:10px}
 .pilares p{color:var(--texto-suave);margin:0}
 .abordagem__foto{margin:0;position:sticky;top:calc(var(--topo) + 32px)}
@@ -219,7 +218,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 .trat .envolto{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(48px,7vw,112px);align-items:start}
 .trat__foto{margin:0;position:sticky;top:calc(var(--topo) + 32px)}
 .trat__foto img{width:100%;aspect-ratio:602/1152;object-fit:cover;max-height:calc(100vh - var(--topo) - 64px)}
-.trat__grupo{margin-top:56px}
+.trat__grupo{margin-top:44px}
 .trat__grupo h3{font:500 .95rem/1.4 var(--sans);letter-spacing:.04em;color:var(--texto-suave);padding-bottom:14px;border-bottom:1px solid var(--marrom)}
 .trat__grupo ul{list-style:none;margin:0;padding:0}
 .trat__grupo li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:8px 40px;padding:26px 0;border-bottom:1px solid var(--taupe)}
@@ -235,12 +234,12 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 @media (max-width:599px){.trat__grupo li{grid-template-columns:1fr}}
 
 /* Resultados */
-.galeria{columns:3 300px;column-gap:24px;margin-top:56px}
-.galeria img{width:100%;margin-bottom:24px;break-inside:avoid;background:var(--areia)}
-@media (max-width:699px){
-  .galeria{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1*var(--gutter));padding:0 var(--gutter) 12px;scroll-padding-inline:var(--gutter)}
-  .galeria img{flex:0 0 82%;height:auto;align-self:flex-start;margin:0;scroll-snap-align:start}
-}
+.galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:48px}
+.resultado{display:flex;flex-direction:column;text-decoration:none;min-width:0}
+.resultado img{width:100%;aspect-ratio:4/5;object-fit:contain;background:var(--areia)}
+.resultado>span{padding:12px 0;font-size:.9rem;color:var(--texto-suave);border-bottom:1px solid var(--taupe)}
+@media (hover:hover){.resultado:hover>span{color:var(--grafite);text-decoration:underline;text-underline-offset:4px}}
+@media (max-width:699px){.galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}.resultado>span{font-size:.8rem}}
 
 /* Como funciona */
 .passos{list-style:none;counter-reset:passo;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
@@ -267,7 +266,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 @media (max-width:799px){.duvidas .envolto{grid-template-columns:1fr}}
 
 /* Instagram */
-.insta{background:var(--areia);padding-block:clamp(72px,9vw,120px)}
+.insta{background:var(--areia);padding-block:clamp(56px,7vw,96px)}
 .insta__cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px}
 .insta__cab h2{font-size:clamp(1.9rem,3.6vw,3rem)}
 .insta__grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px;text-decoration:none}
@@ -287,6 +286,13 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
 .locais p{color:var(--texto-claro);font-size:.98rem;margin:0}
 .revisao .contato .pend::after,.revisao .rodape .pend::after{background:#5B4A2E;color:#F3E6C4}
 @media (max-width:799px){.contato .envolto{grid-template-columns:1fr}.contato__foto{order:2}.locais{grid-template-columns:1fr}}
+
+/* Barra fixa de agendamento no celular */
+.contato-mobile{display:none}
+@media (max-width:699px){
+  .contato-mobile{display:flex;position:fixed;inset:auto 0 0 0;z-index:6;align-items:center;justify-content:center;min-height:56px;padding:0 24px env(safe-area-inset-bottom);background:var(--marrom);color:var(--marfim);font-weight:500;text-decoration:none;border-top:1px solid rgb(246 243 238 / .2);--foco:var(--marfim)}
+  body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+}
 
 /* Rodapé */
 .rodape{background:var(--grafite);color:var(--texto-claro);padding-block:64px 40px;font-size:.95rem}
@@ -317,7 +323,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
       <a href="#resultados">Resultados</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#duvidas">Dúvidas</a>
-      <a class="botao botao--claro" href="#contato">Agendar avaliação</a>
+      <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
     </nav>
   </div>
 </header>
@@ -329,7 +335,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         <h1 id="titulo">Naturalidade e elegância em cada detalhe</h1>
         <p class="hero__sub">Um olhar individualizado para valorizar sua beleza e respeitar aquilo que faz você ser única.</p>
         <div class="hero__acoes">
-          <a class="botao botao--claro" href="#contato">Agendar avaliação</a>
+          <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
           <a class="link" href="#sobre">Conheça a profissional</a>
         </div>
         <ul class="hero__dados">
@@ -338,7 +344,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         </ul>
       </div>
       <figure class="hero__foto">
-        <img src="assets/retrato-estudio-1000.webp" srcset="assets/retrato-estudio-640.webp 640w, assets/retrato-estudio-1000.webp 1000w" sizes="(max-width:899px) 100vw, 40vw" width="1000" height="1776" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" fetchpriority="high">
+        <img src="assets/retrato-estudio-1000.webp" srcset="assets/retrato-estudio-640.webp 640w, assets/retrato-estudio-1000.webp 1000w, assets/retrato-estudio-hd.webp 1200w" sizes="(max-width:899px) 100vw, 40vw" width="1000" height="1776" alt="Dra. Ana Cláudia Reis em retrato de estúdio, aplicando gloss nos lábios" fetchpriority="high">
       </figure>
     </div>
   </section>
@@ -429,7 +435,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         </div>
 
         <div class="trat__cta">
-          <a class="botao botao--escuro" href="#contato">Agendar avaliação</a>
+          <a class="botao botao--escuro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
           <p>A avaliação define o que faz sentido para você.</p>
         </div>
       </div>
@@ -440,16 +446,16 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
     <div class="envolto">
       <h2 id="resultados-titulo">Resultados</h2>
       <p class="intro">Pacientes atendidas pela Dra. Ana Cláudia Reis, com imagens publicadas com autorização. Cada rosto responde de um jeito: o resultado depende da avaliação e do plano individual.</p>
-      <div class="galeria" role="region" tabindex="0" aria-label="Fotos de antes e depois">
-        <img src="assets/resultado-1-900.webp" srcset="assets/resultado-1-560.webp 560w, assets/resultado-1-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1059" alt="Antes e depois de paciente, vista frontal" loading="lazy">
-        <img src="assets/resultado-7-1000.webp" srcset="assets/resultado-7-600.webp 600w, assets/resultado-7-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="834" alt="Antes e depois de paciente, vista oblíqua" loading="lazy">
-        <img src="assets/resultado-3-900.webp" srcset="assets/resultado-3-560.webp 560w, assets/resultado-3-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1106" alt="Paciente em 2023 e em 2026, vista frontal" loading="lazy">
-        <img src="assets/resultado-9-1000.webp" srcset="assets/resultado-9-600.webp 600w, assets/resultado-9-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="649" alt="Lábios de paciente antes e depois do preenchimento labial" loading="lazy">
-        <img src="assets/resultado-2-900.webp" srcset="assets/resultado-2-560.webp 560w, assets/resultado-2-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1099" alt="Antes e depois de paciente, vista oblíqua" loading="lazy">
-        <img src="assets/resultado-8-1000.webp" srcset="assets/resultado-8-600.webp 600w, assets/resultado-8-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="893" alt="Antes e depois de paciente, perfil" loading="lazy">
-        <img src="assets/resultado-4-900.webp" srcset="assets/resultado-4-560.webp 560w, assets/resultado-4-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1200" alt="Antes e depois de paciente, perfil" loading="lazy">
-        <img src="assets/resultado-5-900.webp" srcset="assets/resultado-5-560.webp 560w, assets/resultado-5-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="886" alt="Antes e depois de paciente, vista oblíqua" loading="lazy">
-        <img src="assets/resultado-6-900.webp" srcset="assets/resultado-6-560.webp 560w, assets/resultado-6-900.webp 900w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1095" alt="Antes e depois do perfil do nariz de paciente, vista lateral" loading="lazy">
+      <div class="galeria">
+        <a class="resultado" href="assets/resultado-1-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-1-900.webp" srcset="assets/resultado-1-560.webp 560w, assets/resultado-1-900.webp 900w, assets/resultado-1-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1059" alt="Antes e depois de paciente, vista frontal" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
+        <a class="resultado" href="assets/resultado-7-1000.webp" target="_blank" rel="noopener"><img src="assets/resultado-7-1000.webp" srcset="assets/resultado-7-600.webp 600w, assets/resultado-7-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="834" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
+        <a class="resultado" href="assets/resultado-3-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-3-900.webp" srcset="assets/resultado-3-560.webp 560w, assets/resultado-3-900.webp 900w, assets/resultado-3-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1106" alt="Paciente em 2023 e em 2026, vista frontal" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
+        <a class="resultado" href="assets/resultado-9-1000.webp" target="_blank" rel="noopener"><img src="assets/resultado-9-1000.webp" srcset="assets/resultado-9-600.webp 600w, assets/resultado-9-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="649" alt="Lábios de paciente antes e depois do preenchimento labial" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
+        <a class="resultado" href="assets/resultado-2-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-2-900.webp" srcset="assets/resultado-2-560.webp 560w, assets/resultado-2-900.webp 900w, assets/resultado-2-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1099" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
+        <a class="resultado" href="assets/resultado-8-1000.webp" target="_blank" rel="noopener"><img src="assets/resultado-8-1000.webp" srcset="assets/resultado-8-600.webp 600w, assets/resultado-8-1000.webp 1000w" sizes="(max-width:699px) 82vw, 33vw" width="1000" height="893" alt="Antes e depois de paciente, perfil" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
+        <a class="resultado" href="assets/resultado-4-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-4-900.webp" srcset="assets/resultado-4-560.webp 560w, assets/resultado-4-900.webp 900w, assets/resultado-4-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1200" alt="Antes e depois de paciente, perfil" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
+        <a class="resultado" href="assets/resultado-5-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-5-900.webp" srcset="assets/resultado-5-560.webp 560w, assets/resultado-5-900.webp 900w, assets/resultado-5-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="886" alt="Antes e depois de paciente, vista oblíqua" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
+        <a class="resultado" href="assets/resultado-6-hd.webp" target="_blank" rel="noopener"><img src="assets/resultado-6-900.webp" srcset="assets/resultado-6-560.webp 560w, assets/resultado-6-900.webp 900w, assets/resultado-6-hd.webp 1200w" sizes="(max-width:699px) 82vw, 33vw" width="900" height="1095" alt="Antes e depois do perfil do nariz de paciente, vista lateral" loading="lazy"><span>Ver em detalhe<span class="pular-leitor"> (abre em nova aba)</span></span></a>
       </div>
     </div>
   </section>
@@ -548,7 +554,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
         <h2 id="contato-titulo">Agende sua avaliação</h2>
         <p class="intro">Conte o que gostaria de avaliar e em qual cidade prefere ser atendida. Não é preciso enviar dados de saúde por mensagem.</p>
         <div class="contato__acoes">
-          <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Enviar mensagem no Instagram</a>
+          <a class="botao botao--claro" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
           <!-- Quando o número for confirmado, acrescentar:
                <a class="botao" href="https://wa.me/55DDDNUMERO?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20agendamento%20de%20uma%20avalia%C3%A7%C3%A3o.">WhatsApp</a> -->
         </div>
@@ -566,6 +572,7 @@ p{margin:0 0 1em;max-width:62ch;text-wrap:pretty}
     </div>
   </section>
 </main>
+<a class="contato-mobile" href="https://ig.me/m/draanaclaudiareis_">Agendar pelo Instagram</a>
 
 <footer class="rodape">
   <div class="envolto">
