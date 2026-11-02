@@ -100,7 +100,7 @@ figure{margin:0}
 .f-45{width:100%;aspect-ratio:4/5;object-fit:cover}
 .f-54{width:100%;aspect-ratio:5/4;object-fit:cover}
 /* Anel de foco claro nas faixas escuras: currentColor sumia nos botões claros. */
-.topo,.contato,.rodape,#menu,.contato-mobile{--foco:var(--marfim)}
+.topo,.contato,.videos,.rodape,#menu,.contato-mobile{--foco:var(--marfim)}
 :focus-visible{outline:2px solid var(--foco);outline-offset:4px;border-radius:2px}
 [id]{scroll-margin-top:calc(var(--topo) + 16px)}
 .envolto{width:min(100% - 2*var(--gutter),var(--largura));margin-inline:auto}
@@ -250,6 +250,17 @@ figure{margin:0}
 @media (hover:hover){.galeria a:hover img{opacity:.9}}
 .galeria__ajuda{margin:12px 0 0;font-size:.92rem;color:var(--texto-suave)}
 @media (max-width:699px){.galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+
+/* Vídeos: reels dela, tocam no próprio site (só baixam ao dar play) */
+.videos{background:var(--noite);color:var(--marfim)}
+.videos .intro{color:var(--texto-claro)}
+.videos__cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 40px}
+.videos__faixa{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:clamp(220px,22vw,280px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin:32px 0 0;padding:0 0 14px;scrollbar-color:var(--taupe) transparent}
+.videos__faixa li{scroll-snap-align:start}
+.videos__faixa video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;background:#1b1412}
+.videos__faixa figcaption{margin-top:10px;font-size:.95rem;line-height:1.4}
+.videos__faixa figcaption span{display:block;color:var(--texto-claro);font-size:.85rem}
+@media (max-width:699px){.videos__faixa{grid-auto-columns:64vw;margin-inline:calc(-1*var(--gutter));padding-inline:var(--gutter);scroll-padding-inline:var(--gutter)}}
 
 /* Como funciona */
 .passos{list-style:none;counter-reset:passo;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
@@ -458,6 +469,44 @@ figure{margin:0}
     </div>
   </section>
 
+  <section class="secao videos" id="videos" aria-labelledby="videos-titulo">
+    <div class="envolto">
+      <div class="videos__cab">
+        <div>
+          <h2 id="videos-titulo">Vídeos</h2>
+          <p class="intro">A Dra. Ana Cláudia explica os tratamentos e mostra resultados.</p>
+        </div>
+        <a class="link" href="https://www.instagram.com/draanaclaudiareis_/reels/">Todos os vídeos no Instagram</a>
+      </div>
+      <ul class="videos__faixa" role="region" tabindex="0" aria-label="Vídeos da Dra. Ana Cláudia Reis">
+        <li><figure>
+          <video controls preload="none" playsinline poster="videos/DdbolWHxRoa.webp" width="720" height="1280" aria-label="Harmonização não é seguir um padrão"><source src="videos/DdbolWHxRoa.mp4" type="video/mp4"></video>
+          <figcaption>Harmonização não é seguir um padrão<span>0:55 · <a class="link" href="https://www.instagram.com/reel/DdbolWHxRoa/">ver no Instagram</a></span></figcaption>
+        </figure></li>
+        <li><figure>
+          <video controls preload="none" playsinline poster="videos/DbCCXKmgsVI.webp" width="720" height="1280" aria-label="A confiança que reaparece no espelho"><source src="videos/DbCCXKmgsVI.mp4" type="video/mp4"></video>
+          <figcaption>A confiança que reaparece no espelho<span>0:14 · <a class="link" href="https://www.instagram.com/reel/DbCCXKmgsVI/">ver no Instagram</a></span></figcaption>
+        </figure></li>
+        <li><figure>
+          <video controls preload="none" playsinline poster="videos/DQAb_EvEWfy.webp" width="720" height="1280" aria-label="Perfiloplastia: nariz, lábios e mento"><source src="videos/DQAb_EvEWfy.mp4" type="video/mp4"></video>
+          <figcaption>Perfiloplastia: nariz, lábios e mento<span>0:29 · <a class="link" href="https://www.instagram.com/reel/DQAb_EvEWfy/">ver no Instagram</a></span></figcaption>
+        </figure></li>
+        <li><figure>
+          <video controls preload="none" playsinline poster="videos/DXpwPvHP_Kb.webp" width="720" height="1280" aria-label="Rinomodelação com ácido hialurônico"><source src="videos/DXpwPvHP_Kb.mp4" type="video/mp4"></video>
+          <figcaption>Rinomodelação com ácido hialurônico<span>0:26 · <a class="link" href="https://www.instagram.com/reel/DXpwPvHP_Kb/">ver no Instagram</a></span></figcaption>
+        </figure></li>
+        <li><figure>
+          <video controls preload="none" playsinline poster="videos/DZD3Fb-McN-.webp" width="720" height="1280" aria-label="Preenchimento labial"><source src="videos/DZD3Fb-McN-.mp4" type="video/mp4"></video>
+          <figcaption>Preenchimento labial<span>0:14 · <a class="link" href="https://www.instagram.com/reel/DZD3Fb-McN-/">ver no Instagram</a></span></figcaption>
+        </figure></li>
+        <li><figure>
+          <video controls preload="none" playsinline poster="videos/DYUor8oO73y.webp" width="720" height="1280" aria-label="Olheiras profundas: o que fazer"><source src="videos/DYUor8oO73y.mp4" type="video/mp4"></video>
+          <figcaption>Olheiras profundas: o que fazer<span>1:03 · <a class="link" href="https://www.instagram.com/reel/DYUor8oO73y/">ver no Instagram</a></span></figcaption>
+        </figure></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="secao secao--papel" id="como-funciona" aria-labelledby="como-titulo">
     <div class="envolto">
       <h2 id="como-titulo">Como funciona</h2>
@@ -598,6 +647,8 @@ figure{margin:0}
 </footer>
 
 <script>
+// Um vídeo por vez: ao dar play, pausa os outros.
+document.addEventListener('play', e => document.querySelectorAll('video').forEach(v => { if (v !== e.target) v.pause(); }), true);
 // Fecha o menu mobile ao escolher um link.
 const menu = document.getElementById('menu');
 menu.addEventListener('click', e => { if (e.target.closest('a') && menu.matches(':popover-open')) menu.hidePopover(); });

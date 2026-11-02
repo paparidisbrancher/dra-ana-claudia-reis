@@ -12,10 +12,11 @@ Enquanto estiver em aprovação: `noindex` no `<head>` e `robots.txt` bloqueando
 Dados não confirmados têm a classe `pend` no HTML. A etiqueta **"a confirmar"** fica escondida para a demonstração parecer pronta; para vê-las, abra o site com `?revisao` no fim do endereço. Ao confirmar, troque o texto e remova a classe.
 
 - [ ] CRO-MG 62571 (aparece nas fotos do Instagram; conferir no CRO-MG)
-- [ ] Formação, cursos e trajetória (a seção Sobre só diz "cirurgiã-dentista")
+- [ ] Formação, cursos e trajetória (a seção Sobre só diz "cirurgiã-dentista"). Pistas nos reels: curso com @larileme (DJ1gPpjRfRw, mai/2025) e uma mentoria (C-0zTqAyHLM, ago/2024)
+- [ ] Tratamento de olheiras (aparece nos reels DYUor8oO73y e DNjUH71xr0X); ainda não está na lista de tratamentos
 - [ ] Descrições dos tratamentos (baseadas nos posts dela; revisar com ela)
 - [ ] Título: o selo das fotos diz "Odontologia estética e endodontia". O site usa só "cirurgiã-dentista" até a especialidade registrada ser confirmada
-- [ ] Endereços e horários em Carmo da Cachoeira e Varginha
+- [ ] Endereços e horários em Carmo da Cachoeira e Varginha. Pista: o reel DTdxWl0AeGy (13/01/2026) fala do "novo espaço da Dra. Ana Claudia Reis, no Instituto Pró Carmo, em Carmo da Cachoeira"
 - [ ] Número de WhatsApp (o link pronto, com a mensagem neutra, está num comentário na seção Contato). Hoje o botão principal abre o direct do Instagram
 - [ ] Etapas reais do atendimento (Como funciona)
 - [ ] Respostas das dúvidas frequentes revisadas por ela
@@ -48,6 +49,19 @@ Formatos: retratos em 4:5, fotos horizontais em 5:4, antes e depois em quadrado 
 
 São capturas comprimidas do Instagram. Pedir os originais em alta resolução à cliente.
 Não usadas: antes e depois que não cabem em quadrado sem cortar rosto (lábios e dois oblíquos dos posts), fotos com texto no meio da imagem (placa do consultório, flores com o monograma, nariz antes e depois em cima e embaixo), a foto no barco e a selfie com adesivo.
+
+## Vídeos
+
+Seção "Vídeos" com 6 reels dela, servidos do próprio site (`videos/<código>.mp4`, 720p, H.264, `preload="none"`: só baixam ao dar play) e capa `videos/<código>.webp`. Extraídos em 02/11/2026 com a conta do Erick logada no navegador; os 45 reels foram listados e os pessoais (viagens, família, eventos) ficaram de fora.
+
+| Código | Tema | Duração |
+|---|---|---|
+| DdbolWHxRoa | Harmonização não é seguir um padrão | 0:55 |
+| DbCCXKmgsVI | A confiança que reaparece no espelho (o mais visto, 23 mil) | 0:14 |
+| DQAb_EvEWfy | Perfiloplastia | 0:29 |
+| DXpwPvHP_Kb | Rinomodelação | 0:26 |
+| DZD3Fb-McN- | Preenchimento labial | 0:14 |
+| DYUor8oO73y | Olheiras profundas | 1:03 |
 
 ## SEO
 
